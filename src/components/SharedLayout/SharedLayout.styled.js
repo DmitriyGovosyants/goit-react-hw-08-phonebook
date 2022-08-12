@@ -18,7 +18,7 @@ export const Container = styled.div`
 
 export const Header = styled.header`
   display: flex;
-  height: 50px;
+  min-height: 50px;
   background-color: ${p => p.theme.colors.bgHeader};
   border-bottom: 1px solid tomato;
 `
