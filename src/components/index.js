@@ -5,3 +5,5 @@ export * from './ContactList/ContactList';
 export * from './ContactItem/ContactItem';
 export * from './Modal/Modal';
 export * from './SharedLayout/SharedLayout';
+export * from './Navigation/Navigation';
+export * from './UserMenu/UserMenu';
