@@ -8,6 +8,7 @@ import {
 import { toast } from 'react-toastify';
 import styled from '@emotion/styled';
 import { Spinner } from 'components';
+import Button from '@mui/material/Button';
 
 const ContactFormStyled = styled.form`
   display: flex;
@@ -42,24 +43,24 @@ const ContactInput = styled.input`
   }
 `;
 
-const SubmitBtn = styled.button`
-  padding: ${p => p.theme.spacing(2)};
+// const SubmitBtn = styled.button`
+//   padding: ${p => p.theme.spacing(2)};
 
-  font-weight: 700;
-  line-height: 2;
-  color: ${p => p.theme.colors.textColorMain};
+//   font-weight: 700;
+//   line-height: 2;
+//   color: ${p => p.theme.colors.textColorMain};
 
-  background-color: ${p => p.theme.colors.btnBgc};
-  border-radius: 10px;
-  outline: none;
+//   background-color: ${p => p.theme.colors.btnBgc};
+//   border-radius: 10px;
+//   outline: none;
 
-  :focus {
-    box-shadow: ${p => p.theme.shadow.formFocusShadow};
-  }
-  :hover {
-    background-color: ${p => p.theme.colors.btnBgcAccent};
-  }
-`;
+//   :focus {
+//     box-shadow: ${p => p.theme.shadow.formFocusShadow};
+//   }
+//   :hover {
+//     background-color: ${p => p.theme.colors.btnBgcAccent};
+//   }
+// `;
 
 const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
 const phoneRegExp =
@@ -119,9 +120,12 @@ export const ContactForm = () => {
       <ContactInput {...register('phone')} />
       <p>{errors.phone?.message}</p>
 
-      <SubmitBtn type="submit" disabled={isLoading}>
+      {/* <SubmitBtn type="submit" disabled={isLoading}>
         {isLoading ? <Spinner /> : 'Add contact'}
-      </SubmitBtn>
+      </SubmitBtn> */}
+      <Button type="submit" disabled={isLoading} variant="contained">
+        {isLoading ? <Spinner /> : 'Create new contact'}
+      </Button>
     </ContactFormStyled>
   );
 };

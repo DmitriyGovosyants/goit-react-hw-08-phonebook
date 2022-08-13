@@ -1,14 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { routesPath } from 'routerSettings/setting';
 import { MainTitle } from 'components';
-import Button from '@mui/material/Button';
 
 const Home = () => {
   const isAutorized = false; // change after add token
 
   return (
     <>
-      <Button variant="contained">Hello World</Button>
       <MainTitle>Phonebook</MainTitle>
 
       <p>Hi there!</p>

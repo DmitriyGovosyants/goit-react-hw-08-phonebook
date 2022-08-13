@@ -1,7 +1,17 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { SharedLayout } from 'components';
+import {
+  ThemeProvider as MuiThemeProvider,
+  StyledEngineProvider,
+  createTheme,
+} from '@mui/material/styles';
 import { routesPath } from 'routerSettings/setting';
+import { theme } from '../../styles/theme';
+
+const muiTheme = createTheme({
+  ...theme,
+});
 
 const Home = lazy(() =>
   import('pages/Home/Home' /* webpackChunkName: "home-page" */)
@@ -18,14 +28,18 @@ const Contacts = lazy(() =>
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path={routesPath.register} element={<Register />} />
-        <Route path={routesPath.login} element={<Login />} />
-        <Route path={routesPath.contacts} element={<Contacts />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Route>
-    </Routes>
+    <StyledEngineProvider injectFirst>
+      <MuiThemeProvider theme={muiTheme}>
+        <Routes>
+          <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path={routesPath.register} element={<Register />} />
+            <Route path={routesPath.login} element={<Login />} />
+            <Route path={routesPath.contacts} element={<Contacts />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </MuiThemeProvider>
+    </StyledEngineProvider>
   );
 };

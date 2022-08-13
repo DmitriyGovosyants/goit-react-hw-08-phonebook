@@ -26,26 +26,27 @@ export const LoginForm = () => {
     },
   });
 
-  const onSubmit = async ({ email, password }) => {
+  const onSubmit = ({ email, password }) => {
     logIn({ email, password });
-    // console.log('error: ', isError);
-    // toast.info(`${name} registered`);
     reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="email">Email</label>
-      <input type="email" {...register('email')} />
-      <p>{errors.email?.message}</p>
+    <>
+      {isError && <p>Error</p>}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="email">Email</label>
+        <input type="email" {...register('email')} />
+        <p>{errors.email?.message}</p>
 
-      <label htmlFor="password">Password</label>
-      <input type="password" {...register('password')} />
-      <p>{errors.password?.message}</p>
+        <label htmlFor="password">Password</label>
+        <input type="password" {...register('password')} />
+        <p>{errors.password?.message}</p>
 
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? <Spinner /> : 'Sign in'}
-      </button>
-    </form>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? <Spinner /> : 'Sign in'}
+        </button>
+      </form>
+    </>
   );
 };

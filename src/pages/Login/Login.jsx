@@ -3,7 +3,7 @@ import { MainTitle, LoginForm } from 'components';
 const Login = () => {
   return (
     <>
-      <MainTitle>Signin</MainTitle>
+      <MainTitle>Login</MainTitle>
       <LoginForm />
     </>
   );
