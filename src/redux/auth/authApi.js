@@ -2,7 +2,17 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://connections-api.herokuapp.com' }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://connections-api.herokuapp.com',
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().auth.token;
+
+      if (token !== null) {
+        headers.set('authorization', `Bearer ${token}`)
+      }
+      return headers
+    },
+  }),
   tagTypes: ['User'],
   keepUnusedDataFor: 30,
   endpoints: builder => ({
@@ -24,8 +34,17 @@ export const authApi = createApi({
       }),
       invalidatesTags: ['User'],
     }),
+
+    logOut: builder.mutation({
+      query: body => ({
+        url: '/users/logout',
+        method: 'POST',
+        body
+      }),
+      invalidatesTags: ['User'],
+    }),
     
   }),
 })
 
-export const { useRegisterMutation, useLogInMutation } = authApi;
+export const { useRegisterMutation, useLogInMutation, useLogOutMutation } = authApi;
