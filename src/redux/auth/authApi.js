@@ -7,29 +7,25 @@ export const authApi = createApi({
   keepUnusedDataFor: 30,
   endpoints: builder => ({
 
-    getContacts: builder.query({
-      query: () => '/contacts',
-      providesTags: ['Contacts'],
-    }),
-
-    addNewUser: builder.mutation({
+    register: builder.mutation({
       query: credentials => ({
         url: '/users/signup',
         method: 'POST',
         body: { ...credentials },
       }),
-      invalidatesTags: ['Contacts'],
+      invalidatesTags: ['User'],
     }),
 
-    deleteContact: builder.mutation({
-      query: contactId => ({
-        url: `/contacts/${contactId}`,
-        method: 'DELETE',
+    logIn: builder.mutation({
+      query: credentials => ({
+        url: '/users/login',
+        method: 'POST',
+        body: { ...credentials },
       }),
-      invalidatesTags: ['Contacts'],
-    })
+      invalidatesTags: ['User'],
+    }),
     
   }),
 })
 
-export const { useGetContactsQuery, useAddContactMutation, useDeleteContactMutation } = contactsApi;
+export const { useRegisterMutation, useLogInMutation } = authApi;

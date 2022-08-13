@@ -1,13 +1,13 @@
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import {
   useAddContactMutation,
   useGetContactsQuery,
 } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
-import { ThreeCircles } from 'react-loader-spinner';
 import styled from '@emotion/styled';
+import { Spinner } from 'components';
 
 const ContactFormStyled = styled.form`
   display: flex;
@@ -120,16 +120,7 @@ export const ContactForm = () => {
       <p>{errors.phone?.message}</p>
 
       <SubmitBtn type="submit" disabled={isLoading}>
-        {isLoading ? (
-          <ThreeCircles
-            height="30"
-            width="30"
-            color="#ffffff"
-            ariaLabel="three-circles-rotating"
-          />
-        ) : (
-          'Add contact'
-        )}
+        {isLoading ? <Spinner /> : 'Add contact'}
       </SubmitBtn>
     </ContactFormStyled>
   );
