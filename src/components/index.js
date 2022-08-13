@@ -7,3 +7,6 @@ export * from './Modal/Modal';
 export * from './SharedLayout/SharedLayout';
 export * from './Navigation/Navigation';
 export * from './UserMenu/UserMenu';
+export * from './AuthMenu/AuthMenu';
+export * from './SigninForm/SIgninForm';
+export * from './MainTitle/MainTitle';

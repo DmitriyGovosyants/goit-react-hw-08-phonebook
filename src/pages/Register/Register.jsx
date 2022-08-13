@@ -1,5 +1,12 @@
+import { MainTitle, SigninForm } from 'components';
+
 const Register = () => {
-  return <p>Register</p>;
+  return (
+    <>
+      <MainTitle>Signin</MainTitle>
+      <SigninForm />
+    </>
+  );
 };
 
 export default Register;

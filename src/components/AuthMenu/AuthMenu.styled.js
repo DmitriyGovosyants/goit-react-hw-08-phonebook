@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
-export const NavList = styled.nav`
-  padding: ${p => p.theme.spacing(3.5)} 0;
-`
-
 export const LinkList = styled.ul`
   display: flex;
 `

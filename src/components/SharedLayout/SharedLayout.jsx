@@ -1,14 +1,20 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Navigation } from 'components';
-import { Section, Container, Header } from './SharedLayout.styled';
+import { Navigation, AuthMenu, UserMenu } from 'components';
+import { Section, Container, Header, MenuBox } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
+  const isAutorized = false; // delete after add token
+
   return (
     <>
       <Header>
         <Container>
-          <Navigation />
+          <MenuBox>
+            <Navigation />
+            {!isAutorized && <AuthMenu />}
+            {isAutorized && <UserMenu />}
+          </MenuBox>
         </Container>
       </Header>
       <main>

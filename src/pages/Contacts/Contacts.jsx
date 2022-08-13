@@ -1,12 +1,11 @@
-import { Title } from './Contacts.styled';
-import { ContactForm, Filter, ContactList } from 'components';
+import { ContactForm, MainTitle, Filter, ContactList } from 'components';
 
 const Contacts = () => {
   return (
     <>
-      <ContactForm />
-      <Title>Contacts</Title>
+      <MainTitle>Contacts</MainTitle>
       <Filter />
+      <ContactForm />
       <ContactList />
     </>
   );

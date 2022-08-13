@@ -1,6 +1,6 @@
-import { MainTitle } from './Home.styled';
 import { NavLink } from 'react-router-dom';
 import { routesPath } from 'routerSettings/setting';
+import { MainTitle } from 'components';
 
 const Home = () => {
   const isAutorized = false; // delete after add token
@@ -8,6 +8,7 @@ const Home = () => {
   return (
     <>
       <MainTitle>Phonebook</MainTitle>
+
       <p>Hi there!</p>
       <p>Welcome to phonebook react app.</p>
       {!isAutorized && (

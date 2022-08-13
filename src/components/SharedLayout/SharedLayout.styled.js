@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { device } from 'utils/mediaquery';
 
 export const Section = styled.div`
-  padding: ${p => p.theme.spacing(10)} 0;
+  padding: ${p => p.theme.spacing(5)} 0;
 `
 
 export const Container = styled.div`
@@ -21,4 +21,10 @@ export const Header = styled.header`
   min-height: 50px;
   background-color: ${p => p.theme.colors.bgHeader};
   border-bottom: 1px solid tomato;
+`
+
+export const MenuBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
