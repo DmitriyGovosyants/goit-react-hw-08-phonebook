@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { routesPath } from 'router/setting';
+import { routesPath } from 'router';
 import { MainTitle } from 'components';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';

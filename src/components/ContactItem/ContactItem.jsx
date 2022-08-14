@@ -52,7 +52,7 @@ export const ContactItem = ({ name, number, id }) => {
               type="button"
               onClick={() => handleDelete(id, name)}
               disabled={isLoading}
-              lastEl={true}
+              lastEl
             >
               {isLoading ? 'deleting...' : 'delete'}
             </ApprovalBtn>

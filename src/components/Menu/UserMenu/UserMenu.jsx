@@ -7,14 +7,15 @@ export const UserMenu = () => {
   const userName = useSelector(authSelectors.getUserName);
   const [logOut] = useLogOutMutation();
 
-  // const handleLogOut = () => {
-  //   logOut()
-  // }
-
   return (
     <UserMenuContainer>
       <p>Hello, {userName}</p>
-      <button type="button" onClick={() => logOut()}>
+      <button
+        type="button"
+        onClick={() => {
+          logOut();
+        }}
+      >
         Log out
       </button>
     </UserMenuContainer>

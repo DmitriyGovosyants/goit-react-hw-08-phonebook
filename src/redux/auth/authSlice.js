@@ -5,6 +5,7 @@ const initialState = {
   user: {name: null, email: null},
   token: null,
   isLoggedIn: false,
+  isRefreshing: false,
 }
 
 export const authSlice = createSlice({
@@ -28,16 +29,22 @@ export const authSlice = createSlice({
         },
       ).addMatcher(
         authApi.endpoints.logOut.matchFulfilled,
-        (state, _) => {
+        (state) => {
           state.user = { name: null, email: null };
           state.token = null;
           state.isLoggedIn = false;
+        },
+      ).addMatcher(
+        authApi.endpoints.getCurrentUser.matchPending,
+        (state) => {
+          state.isRefreshing = true;
         },
       ).addMatcher(
         authApi.endpoints.getCurrentUser.matchFulfilled,
         (state, { payload }) => {
           state.user = payload;
           state.isLoggedIn = true;
+          state.isRefreshing = false;
         },
       );
   }

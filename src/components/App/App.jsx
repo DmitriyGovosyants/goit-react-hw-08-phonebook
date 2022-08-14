@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-// import { PrivateRoute } from 'components/Menu/PrivateRoute';
-import { routesPath } from 'router/setting';
+import { PrivateRoute, PublicRoute, routesPath } from 'router';
 import { GetCurrentUser } from 'redux/auth/authRefreshPage';
 import { SharedLayout } from 'components';
 
@@ -37,13 +36,23 @@ export const App = () => {
       <MuiThemeProvider theme={muiTheme}>
         <Routes>
           <Route path="/" element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path={routesPath.register} element={<Register />} />
-            <Route path={routesPath.login} element={<Login />} />
-            {/* <PrivateRoute path={routesPath.contacts}>
-              <Contacts />
-            </PrivateRoute> */}
-            <Route path={routesPath.contacts} element={<Contacts />} />
+            <Route element={<PublicRoute />}>
+              <Route index element={<Home />} />
+            </Route>
+
+            <Route
+              element={
+                <PublicRoute restricted redirectTo={routesPath.contacts} />
+              }
+            >
+              <Route path={routesPath.register} element={<Register />} />
+              <Route path={routesPath.login} element={<Login />} />
+            </Route>
+
+            <Route element={<PrivateRoute redirectTo={routesPath.login} />}>
+              <Route path={routesPath.contacts} element={<Contacts />} />
+            </Route>
+
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

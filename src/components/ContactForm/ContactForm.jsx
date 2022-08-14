@@ -85,7 +85,7 @@ const schema = Yup.object({
 
 export const ContactForm = () => {
   const [updatePost, { isLoading }] = useAddContactMutation();
-  const { data: contacts } = useGetContactsQuery();
+  const { data: contacts } = useGetContactsQuery('');
 
   const {
     register,

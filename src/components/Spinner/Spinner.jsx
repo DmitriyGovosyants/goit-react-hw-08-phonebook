@@ -1,12 +1,14 @@
-import { ThreeCircles } from 'react-loader-spinner';
+import { Triangle } from 'react-loader-spinner';
 
 export const Spinner = () => {
   return (
-    <ThreeCircles
-      height="30"
-      width="30"
-      color="#ffffff"
-      ariaLabel="three-circles-rotating"
-    />
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Triangle
+        height="40"
+        width="40"
+        color="#484c8a"
+        ariaLabel="triangle-loading"
+      />
+    </div>
   );
 };
