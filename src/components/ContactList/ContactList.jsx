@@ -2,14 +2,17 @@ import { useSelector } from 'react-redux';
 import { ContactItem } from 'components';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
 import { ThreeCircles } from 'react-loader-spinner';
+import authSelectors from 'redux/auth/authSelectors';
 
 export const ContactList = () => {
+  const isAutorized = useSelector(authSelectors.getIsLoggedIn); // костыль
+
   const {
     data: contacts,
     isLoading,
     isError,
   } = useGetContactsQuery({
-    refetchOnMountOrArgChange: true,
+    // refetchOnMountOrArgChange: true,
   });
 
   const filter = useSelector(({ filter }) => filter.toLowerCase());
@@ -30,11 +33,11 @@ export const ContactList = () => {
 
   if (isError) return <div>Error query!</div>;
 
-  if (contacts)
+  if (contacts && isAutorized)
     return (
       <ul>
-        {filteredContacts.map(({ name, phone, id }) => {
-          return <ContactItem key={id} id={id} name={name} phone={phone} />;
+        {filteredContacts.map(({ name, number, id }) => {
+          return <ContactItem key={id} id={id} name={name} number={number} />;
         })}
       </ul>
     );

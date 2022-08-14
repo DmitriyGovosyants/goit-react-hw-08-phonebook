@@ -15,7 +15,7 @@ import { Modal } from 'components';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
 
-export const ContactItem = ({ name, phone, id }) => {
+export const ContactItem = ({ name, number, id }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
   const [showModal, setShowModal] = useState(false);
 
@@ -30,7 +30,7 @@ export const ContactItem = ({ name, phone, id }) => {
       <BiUser size={30} style={{ flex: '0 0 30px' }} />
       <Info>
         <InfoText fwBig={true}>{name}</InfoText>
-        <InfoText>{phone}</InfoText>
+        <InfoText>{number}</InfoText>
       </Info>
       <DeleteBtn type="button" onClick={() => setShowModal(s => !s)}>
         <RiDeleteBin2Line size={30} />
@@ -65,6 +65,6 @@ export const ContactItem = ({ name, phone, id }) => {
 
 ContactItem.propTypes = {
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
 };

@@ -1,12 +1,14 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { routesPath } from 'routerSettings/setting';
+import { GetCurrentUser } from 'redux/auth/authRefreshPage';
 import { SharedLayout } from 'components';
+
 import {
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
   createTheme,
 } from '@mui/material/styles';
-import { routesPath } from 'routerSettings/setting';
 import { theme } from '../../styles/theme';
 
 const muiTheme = createTheme({
@@ -27,6 +29,8 @@ const Contacts = lazy(() =>
 );
 
 export const App = () => {
+  GetCurrentUser();
+
   return (
     <StyledEngineProvider injectFirst>
       <MuiThemeProvider theme={muiTheme}>

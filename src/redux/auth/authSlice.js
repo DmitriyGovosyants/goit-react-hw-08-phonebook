@@ -33,6 +33,12 @@ export const authSlice = createSlice({
           state.token = null;
           state.isLoggedIn = false;
         },
+      ).addMatcher(
+        authApi.endpoints.getCurrentUser.matchFulfilled,
+        (state, { payload }) => {
+          state.user = payload;
+          state.isLoggedIn = true;
+        },
       );
   }
 });

@@ -75,7 +75,7 @@ const schema = Yup.object({
     .min(2)
     .max(30)
     .required('Required'),
-  phone: Yup.string()
+  number: Yup.string()
     .matches(
       phoneRegExp,
       'Phone number must be digits, contain 6 digits, can contain spaces, dashes, parentheses and can start with +'
@@ -96,16 +96,16 @@ export const ContactForm = () => {
     resolver: yupResolver(schema),
     defaultValues: {
       name: '',
-      phone: '',
+      number: '',
     },
   });
 
-  const onSubmit = ({ name, phone }) => {
+  const onSubmit = ({ name, number }) => {
     if (contacts.find(e => e.name === name)) {
       return toast.warn(`${name} is already in contacts`);
     }
 
-    updatePost({ name, phone });
+    updatePost({ name, number });
     toast.info(`${name} is added to contacts`);
     reset();
   };
@@ -116,9 +116,9 @@ export const ContactForm = () => {
       <ContactInput {...register('name')} />
       <p>{errors.name?.message}</p>
 
-      <ContactLabel htmlFor="phone">Phone</ContactLabel>
-      <ContactInput {...register('phone')} />
-      <p>{errors.phone?.message}</p>
+      <ContactLabel htmlFor="number">Number</ContactLabel>
+      <ContactInput {...register('number')} />
+      <p>{errors.number?.message}</p>
 
       {/* <SubmitBtn type="submit" disabled={isLoading}>
         {isLoading ? <Spinner /> : 'Add contact'}
