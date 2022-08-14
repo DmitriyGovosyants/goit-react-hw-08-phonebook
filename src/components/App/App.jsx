@@ -16,16 +16,16 @@ const muiTheme = createTheme({
 });
 
 const Home = lazy(() =>
-  import('pages/Home/Home' /* webpackChunkName: "home-page" */)
+  import('pages/Home' /* webpackChunkName: "home-page" */)
 );
 const Register = lazy(() =>
-  import('pages/Register/Register' /* webpackChunkName: "register-page" */)
+  import('pages/Register' /* webpackChunkName: "register-page" */)
 );
 const Login = lazy(() =>
-  import('pages/Login/Login' /* webpackChunkName: "login-page" */)
+  import('pages/Login' /* webpackChunkName: "login-page" */)
 );
 const Contacts = lazy(() =>
-  import('pages/Contacts/Contacts' /* webpackChunkName: "contact-page" */)
+  import('pages/Contacts' /* webpackChunkName: "contact-page" */)
 );
 
 export const App = () => {

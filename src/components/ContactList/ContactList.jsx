@@ -1,20 +1,11 @@
 import { useSelector } from 'react-redux';
 import { ContactItem, Spinner } from 'components';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
-import authSelectors from 'redux/auth/authSelectors';
 
 export const ContactList = () => {
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn); // костыль
-
-  const {
-    data: contacts,
-    isLoading,
-    isError,
-  } = useGetContactsQuery('', {
-    refetchOnMountOrArgChange: true,
-  });
-
   const filter = useSelector(({ filter }) => filter.toLowerCase());
+
+  const { data: contacts, isLoading, isError } = useGetContactsQuery('');
 
   const filteredContacts = contacts?.filter(contact =>
     contact.name.toLowerCase().includes(filter)
@@ -24,7 +15,7 @@ export const ContactList = () => {
 
   if (isError) return <div>Error query!</div>;
 
-  if (contacts && isLoggedIn)
+  if (contacts)
     return (
       <ul>
         {filteredContacts.map(({ name, number, id }) => {

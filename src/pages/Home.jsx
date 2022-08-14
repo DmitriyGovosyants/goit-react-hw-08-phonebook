@@ -31,6 +31,7 @@ const Home = () => {
           </p>
         </>
       )}
+      {isLoggedIn && <p>You’re already logged in!</p>}
     </>
   );
 };

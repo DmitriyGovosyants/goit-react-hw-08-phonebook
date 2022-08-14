@@ -25,7 +25,7 @@ root.render(
             <App />
           </ThemeProvider>
         </BrowserRouter>
-      </PersistGate>~
+      </PersistGate>
     </ReduxProvider>
   </StrictMode>
 );
