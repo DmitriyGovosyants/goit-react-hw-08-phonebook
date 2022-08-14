@@ -1,4 +1,4 @@
-import { routesPath } from 'routerSettings/setting';
+import { routesPath } from 'router/setting';
 import { LinkList, MainLink } from './AuthMenu.styled';
 
 export const AuthMenu = () => {

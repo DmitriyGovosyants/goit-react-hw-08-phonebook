@@ -1,9 +1,9 @@
 export * from './App/App';
-
 export * from './SharedLayout/SharedLayout';
-export * from './Navigation/Navigation';
-export * from './AuthMenu/AuthMenu';
-export * from './UserMenu/UserMenu';
+
+export * from './Menu/NavMenu/NavMenu';
+export * from './Menu/AuthMenu/AuthMenu';
+export * from './Menu/UserMenu/UserMenu';
 
 export * from './Filter/Filter';
 export * from './ContactForm/ContactForm';

@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { routesPath } from 'routerSettings/setting';
+// import { PrivateRoute } from 'components/Menu/PrivateRoute';
+import { routesPath } from 'router/setting';
 import { GetCurrentUser } from 'redux/auth/authRefreshPage';
 import { SharedLayout } from 'components';
 
@@ -39,6 +40,9 @@ export const App = () => {
             <Route index element={<Home />} />
             <Route path={routesPath.register} element={<Register />} />
             <Route path={routesPath.login} element={<Login />} />
+            {/* <PrivateRoute path={routesPath.contacts}>
+              <Contacts />
+            </PrivateRoute> */}
             <Route path={routesPath.contacts} element={<Contacts />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

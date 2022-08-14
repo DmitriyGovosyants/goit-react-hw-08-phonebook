@@ -1,9 +1,11 @@
 import { NavLink } from 'react-router-dom';
-import { routesPath } from 'routerSettings/setting';
+import { routesPath } from 'router/setting';
 import { MainTitle } from 'components';
+import { useSelector } from 'react-redux';
+import authSelectors from 'redux/auth/authSelectors';
 
 const Home = () => {
-  const isAutorized = false; // change after add token
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
     <>
@@ -11,7 +13,7 @@ const Home = () => {
 
       <p>Hi there!</p>
       <p>Welcome to phonebook react app.</p>
-      {!isAutorized && (
+      {!isLoggedIn && (
         <>
           <p>
             Please{' '}

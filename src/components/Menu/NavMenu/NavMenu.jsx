@@ -1,7 +1,7 @@
-import { routesPath } from 'routerSettings/setting';
-import { NavList, LinkList, MainLink } from './Navigation.styled';
+import { routesPath } from 'router/setting';
+import { NavList, LinkList, MainLink } from './NavMenu.styled';
 
-export const Navigation = () => {
+export const NavMenu = () => {
   return (
     <NavList>
       <LinkList>

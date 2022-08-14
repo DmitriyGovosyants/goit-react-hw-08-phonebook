@@ -5,7 +5,7 @@ import { useLogOutMutation } from 'redux/auth/authApi';
 
 export const UserMenu = () => {
   const userName = useSelector(authSelectors.getUserName);
-  const [logOut, { isError }] = useLogOutMutation();
+  const [logOut] = useLogOutMutation();
 
   // const handleLogOut = () => {
   //   logOut()
