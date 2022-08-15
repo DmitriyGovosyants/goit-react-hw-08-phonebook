@@ -9,7 +9,7 @@ import {
   StyledEngineProvider,
   createTheme,
 } from '@mui/material/styles';
-import { theme } from '../../styles/theme';
+import { theme } from './styles/theme';
 
 const muiTheme = createTheme({
   ...theme,

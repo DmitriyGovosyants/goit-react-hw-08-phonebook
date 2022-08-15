@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client';
 import { StrictMode } from 'react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { store, persistor } from 'redux/store';
-import { App } from 'components';
+import { App } from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 
