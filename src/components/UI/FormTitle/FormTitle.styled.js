@@ -1,11 +1,6 @@
 import styled from "@emotion/styled";
 
-export const ErrorMessage = styled.p`
-  margin-bottom: 20px;
-  font-size: 12px;
-`
-
-export const FormTitle = styled.p`
+export const Title = styled.p`
   position: absolute;
   top: -50px;
 

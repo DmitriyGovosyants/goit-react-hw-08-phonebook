@@ -7,16 +7,16 @@ import {
 } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
 import styled from '@emotion/styled';
-import { Spinner, FormInputText } from 'components';
+import { Spinner, FormInputText, FormTitle } from 'components';
 import Button from '@mui/material/Button';
 import { ErrorMessage } from './ContactFormAdd.styled';
 
 const ContactFormStyled = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 400px;
-  padding: ${p => p.theme.spacing(6)};
 
   border-radius: 20px;
 `;
@@ -85,6 +85,8 @@ export const ContactFormAdd = ({ closeModal }) => {
 
   return (
     <ContactFormStyled onSubmit={handleSubmit(onSubmit)}>
+      <FormTitle>New Contact</FormTitle>
+
       <FormInputText name={'name'} control={control} label={'Name'} />
       <ErrorMessage>{errors?.name?.message}</ErrorMessage>
 
@@ -92,6 +94,7 @@ export const ContactFormAdd = ({ closeModal }) => {
       <ErrorMessage>{errors?.number?.message}</ErrorMessage>
 
       <Button
+        sx={{ minWidth: '150px' }}
         type="submit"
         disabled={isLoading}
         size="large"
