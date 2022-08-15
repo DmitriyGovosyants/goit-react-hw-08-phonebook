@@ -1,12 +1,12 @@
-import { Triangle } from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 
 export const Spinner = () => {
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <Triangle
-        height="40"
-        width="40"
-        color="#484c8a"
+      <ThreeDots
+        height="27"
+        width="27"
+        color="#ffffff"
         ariaLabel="triangle-loading"
       />
     </div>

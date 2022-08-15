@@ -9,11 +9,13 @@ import { toast } from 'react-toastify';
 import styled from '@emotion/styled';
 import { Spinner, FormInputText } from 'components';
 import Button from '@mui/material/Button';
+import { ErrorMessage } from './ContactFormAdd.styled';
 
 const ContactFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 400px;
   padding: ${p => p.theme.spacing(6)};
 
   border-radius: 20px;
@@ -27,7 +29,7 @@ const schema = Yup.object({
   name: Yup.string()
     .matches(
       nameRegExp,
-      "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+      "* Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
     )
     .min(2)
     .max(30)
@@ -35,7 +37,7 @@ const schema = Yup.object({
   number: Yup.string()
     .matches(
       phoneRegExp,
-      'Phone number must be digits, contain 6 digits, can contain spaces, dashes, parentheses and can start with +'
+      '* Phone number must be digits, contain 6 digits, can contain spaces, dashes, parentheses and can start with +'
     )
     .required('Required'),
 });
@@ -84,12 +86,17 @@ export const ContactFormAdd = ({ closeModal }) => {
   return (
     <ContactFormStyled onSubmit={handleSubmit(onSubmit)}>
       <FormInputText name={'name'} control={control} label={'Name'} />
-      <p>{errors.name?.message}</p>
+      <ErrorMessage>{errors?.name?.message}</ErrorMessage>
 
       <FormInputText name={'number'} control={control} label={'Number'} />
-      <p>{errors.number?.message}</p>
+      <ErrorMessage>{errors?.number?.message}</ErrorMessage>
 
-      <Button type="submit" disabled={isLoading} variant="contained">
+      <Button
+        type="submit"
+        disabled={isLoading}
+        size="large"
+        variant="contained"
+      >
         {isLoading ? <Spinner /> : 'Create'}
       </Button>
     </ContactFormStyled>
