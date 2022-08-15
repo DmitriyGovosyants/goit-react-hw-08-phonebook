@@ -7,7 +7,9 @@ export const ContactList = () => {
   const filter = useSelector(({ filter }) => filter.toLowerCase());
   const { data: contacts, isLoading, isError, error } = useGetContactsQuery('');
 
-  console.log(error, isError);
+  const filteredContacts = contacts?.filter(contact =>
+    contact.name.toLowerCase().includes(filter)
+  );
 
   if (isError) {
     if (error.status === 401) {
@@ -19,15 +21,11 @@ export const ContactList = () => {
     if (error.status === 500) {
       toast.error('Server not response');
     }
+
+    return <div>Error query!</div>;
   }
 
-  const filteredContacts = contacts?.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
-  );
-
   if (isLoading) return <Spinner />;
-
-  if (isError) return <div>Error query!</div>;
 
   if (contacts)
     return (

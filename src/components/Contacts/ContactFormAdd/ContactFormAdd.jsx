@@ -83,7 +83,7 @@ const schema = Yup.object({
     .required('Required'),
 });
 
-export const ContactForm = () => {
+export const ContactFormAdd = ({ closeModal }) => {
   const [updatePost, { isLoading }] = useAddContactMutation();
   const { data: contacts } = useGetContactsQuery('');
 
@@ -121,6 +121,7 @@ export const ContactForm = () => {
     }
 
     reset();
+    closeModal();
   };
 
   return (

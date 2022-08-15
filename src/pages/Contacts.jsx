@@ -1,11 +1,10 @@
-import { ContactForm, MainTitle, Filter, ContactList } from 'components';
+import { ContactBar, MainTitle, ContactList } from 'components';
 
 const Contacts = () => {
   return (
     <>
       <MainTitle>Contacts</MainTitle>
-      <Filter />
-      <ContactForm />
+      <ContactBar />
       <ContactList />
     </>
   );
