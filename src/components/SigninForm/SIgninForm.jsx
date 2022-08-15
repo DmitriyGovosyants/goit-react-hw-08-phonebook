@@ -12,7 +12,7 @@ const schema = Yup.object({
 });
 
 export const SigninForm = () => {
-  const [addNewUser, { isLoading, isError }] = useRegisterMutation();
+  const [addNewUser, { isLoading }] = useRegisterMutation();
 
   const {
     register,
@@ -28,10 +28,22 @@ export const SigninForm = () => {
     },
   });
 
-  const onSubmit = ({ name, email, password }) => {
-    addNewUser({ name, email, password });
-    console.log(isError);
-    toast.info(`${name} registered`);
+  const onSubmit = async ({ name, email, password }) => {
+    try {
+      await addNewUser({ name, email, password }).unwrap();
+      toast.info(`${name} is registered`);
+    } catch (error) {
+      if (error.status === 400) {
+        toast.error(error.data.message);
+      }
+      if (error.originalStatus === 404) {
+        toast.error('Resourses not found');
+      }
+      if (error.status === 500) {
+        toast.error('Server not response');
+      }
+    }
+
     reset();
   };
 
