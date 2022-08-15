@@ -20,9 +20,22 @@ export const ContactItem = ({ name, number, id }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleDelete = async (id, name) => {
-    await deleteContact(id);
-    setShowModal(s => !s);
-    toast.info(`Contact ${name} deleted`);
+    try {
+      await deleteContact(id).unwrap();
+      toast.info(`Contact ${name} deleted`);
+    } catch (error) {
+      if (error.status === 401) {
+        toast.error(error.data.message);
+      }
+      if (error.originalStatus === 404) {
+        toast.error('Resourses not found');
+      }
+      if (error.status === 500) {
+        toast.error('Server not response');
+      }
+    } finally {
+      setShowModal(s => !s);
+    }
   };
 
   return (

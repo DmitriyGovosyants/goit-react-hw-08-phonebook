@@ -13,7 +13,6 @@ export const UserMenu = () => {
   const handleLogOut = async () => {
     try {
       await logOut().unwrap();
-      toast.info('You are logged out');
     } catch (error) {
       if (error.status === 401) {
         toast.error(error.data.message);

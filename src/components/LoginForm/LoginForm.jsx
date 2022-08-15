@@ -29,7 +29,6 @@ export const LoginForm = () => {
   const onSubmit = async ({ email, password }) => {
     try {
       await logIn({ email, password }).unwrap();
-      toast.info('You are logged in');
     } catch (error) {
       if (error.status === 400) {
         toast.error('You entered the wrong email or password. Try again');

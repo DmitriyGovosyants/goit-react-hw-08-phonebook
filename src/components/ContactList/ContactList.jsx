@@ -1,11 +1,25 @@
 import { useSelector } from 'react-redux';
 import { ContactItem, Spinner } from 'components';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
+import { toast } from 'react-toastify';
 
 export const ContactList = () => {
   const filter = useSelector(({ filter }) => filter.toLowerCase());
+  const { data: contacts, isLoading, isError, error } = useGetContactsQuery('');
 
-  const { data: contacts, isLoading, isError } = useGetContactsQuery('');
+  console.log(error, isError);
+
+  if (isError) {
+    if (error.status === 401) {
+      toast.error(error.data.message);
+    }
+    if (error.originalStatus === 404) {
+      toast.error('Resourses not found');
+    }
+    if (error.status === 500) {
+      toast.error('Server not response');
+    }
+  }
 
   const filteredContacts = contacts?.filter(contact =>
     contact.name.toLowerCase().includes(filter)

@@ -100,13 +100,26 @@ export const ContactForm = () => {
     },
   });
 
-  const onSubmit = ({ name, number }) => {
-    if (contacts.find(e => e.name === name)) {
+  const onSubmit = async ({ name, number }) => {
+    if (contacts?.find(e => e.name === name)) {
       return toast.warn(`${name} is already in contacts`);
     }
 
-    updatePost({ name, number });
-    toast.info(`${name} is added to contacts`);
+    try {
+      await updatePost({ name, number }).unwrap();
+      toast.info(`${name} is added to contacts`);
+    } catch (error) {
+      if (error.status === 400) {
+        toast.error(error.data.message);
+      }
+      if (error.status === 401) {
+        toast.error(error.data.message);
+      }
+      if (error.originalStatus === 404) {
+        toast.error('Resourses not found');
+      }
+    }
+
     reset();
   };
 

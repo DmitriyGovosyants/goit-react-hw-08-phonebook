@@ -21,7 +21,7 @@ root.render(
         <BrowserRouter basename="/goit-react-hw-08-phonebook/">
           <ThemeProvider theme={theme}>
             <Global styles={GlobalStyles} />
-            <ToastContainer />
+            <ToastContainer autoClose={2000}/>
             <App />
           </ThemeProvider>
         </BrowserRouter>
