@@ -16,6 +16,7 @@ export * from './Contacts/ContactItem/ContactItem';
 
 export * from './UI/MainTitle/MainTitle';
 export * from './UI/FormTitle/FormTitle';
+export * from './UI/MainButton/MainButton';
 export * from './UI/Modal/Modal';
 export * from './UI/Spinner/Spinner';
 export * from './UI/FormInputText/FormInputText';

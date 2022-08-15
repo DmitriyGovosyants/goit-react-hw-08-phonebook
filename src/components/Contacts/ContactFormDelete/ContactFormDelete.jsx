@@ -1,10 +1,12 @@
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
 import {
+  ContactDeleteBox,
   ApprovalText,
   ApprovalBtnWrapper,
   ApprovalBtn,
 } from './ContactFormDelete.styled';
+import { FormTitle } from 'components';
 
 export const ContactFormDelete = ({ name, id, closeModal }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -29,7 +31,8 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
   };
 
   return (
-    <>
+    <ContactDeleteBox>
+      <FormTitle>Delete Contact</FormTitle>
       <ApprovalText>Do you really want to delete this contact?</ApprovalText>
       <ApprovalBtnWrapper>
         <ApprovalBtn type="button" autoFocus onClick={() => closeModal()}>
@@ -44,6 +47,6 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
           {isLoading ? 'deleting...' : 'delete'}
         </ApprovalBtn>
       </ApprovalBtnWrapper>
-    </>
+    </ContactDeleteBox>
   );
 };

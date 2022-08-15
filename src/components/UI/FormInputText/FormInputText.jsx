@@ -9,7 +9,6 @@ export const FormInputText = ({ name, control, label }) => {
       render={({ field: { onChange, value } }) => (
         <TextField
           sx={{ width: '100%', backgroundColor: '#ffeeff' }}
-          autoComplete
           onChange={onChange}
           value={value}
           label={label}

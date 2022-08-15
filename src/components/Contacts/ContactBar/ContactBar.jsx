@@ -1,20 +1,22 @@
-import { ContactFormAdd, Filter, Modal } from 'components';
+import { ContactFormAdd, ContactFilter, Modal } from 'components';
 import { useState } from 'react';
+import { ContactBarBox, ContactAddBtn } from './ContactBar.styled';
+import { FcPlus } from 'react-icons/fc';
 
 export const ContactBar = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
-      <Filter />
-      <button type="button" onClick={() => setShowModal(true)}>
-        Create new contact
-      </button>
+    <ContactBarBox>
+      <ContactFilter />
+      <ContactAddBtn type="button" onClick={() => setShowModal(true)}>
+        <FcPlus size={50} />
+      </ContactAddBtn>
       {showModal && (
         <Modal toggleModal={() => setShowModal(s => !s)}>
           <ContactFormAdd closeModal={() => setShowModal(false)} />
         </Modal>
       )}
-    </>
+    </ContactBarBox>
   );
 };
