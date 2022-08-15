@@ -7,60 +7,17 @@ import {
 } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
 import styled from '@emotion/styled';
-import { Spinner } from 'components';
+import { Spinner, FormInputText } from 'components';
 import Button from '@mui/material/Button';
 
 const ContactFormStyled = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: ${p => p.theme.spacing(10)};
-  padding: ${p => p.theme.spacing(2)};
+  padding: ${p => p.theme.spacing(6)};
 
-  background-color: ${p => p.theme.colors.secondBgc};
   border-radius: 20px;
 `;
-
-const ContactLabel = styled.label`
-  margin-bottom: ${p => p.theme.spacing(2)};
-
-  font-weight: 800;
-  color: ${p => p.theme.colors.textColorSecond};
-`;
-
-const ContactInput = styled.input`
-  min-width: 300px;
-  margin-bottom: ${p => p.theme.spacing(5)};
-  padding: ${p => p.theme.spacing(2)};
-
-  text-align: center;
-
-  border: none;
-  outline: none;
-
-  :focus {
-    box-shadow: ${p => p.theme.shadow.formFocusShadow};
-  }
-`;
-
-// const SubmitBtn = styled.button`
-//   padding: ${p => p.theme.spacing(2)};
-
-//   font-weight: 700;
-//   line-height: 2;
-//   color: ${p => p.theme.colors.textColorMain};
-
-//   background-color: ${p => p.theme.colors.btnBgc};
-//   border-radius: 10px;
-//   outline: none;
-
-//   :focus {
-//     box-shadow: ${p => p.theme.shadow.formFocusShadow};
-//   }
-//   :hover {
-//     background-color: ${p => p.theme.colors.btnBgcAccent};
-//   }
-// `;
 
 const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
 const phoneRegExp =
@@ -88,9 +45,9 @@ export const ContactFormAdd = ({ closeModal }) => {
   const { data: contacts } = useGetContactsQuery('');
 
   const {
-    register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -126,19 +83,14 @@ export const ContactFormAdd = ({ closeModal }) => {
 
   return (
     <ContactFormStyled onSubmit={handleSubmit(onSubmit)}>
-      <ContactLabel htmlFor="name">Name</ContactLabel>
-      <ContactInput {...register('name')} />
+      <FormInputText name={'name'} control={control} label={'Name'} />
       <p>{errors.name?.message}</p>
 
-      <ContactLabel htmlFor="number">Number</ContactLabel>
-      <ContactInput {...register('number')} />
+      <FormInputText name={'number'} control={control} label={'Number'} />
       <p>{errors.number?.message}</p>
 
-      {/* <SubmitBtn type="submit" disabled={isLoading}>
-        {isLoading ? <Spinner /> : 'Add contact'}
-      </SubmitBtn> */}
       <Button type="submit" disabled={isLoading} variant="contained">
-        {isLoading ? <Spinner /> : 'Create new contact'}
+        {isLoading ? <Spinner /> : 'Create'}
       </Button>
     </ContactFormStyled>
   );

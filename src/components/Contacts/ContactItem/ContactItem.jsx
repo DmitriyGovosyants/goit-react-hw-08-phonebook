@@ -6,7 +6,8 @@ import { Contact, Info, InfoText, DeleteBtn } from './ContactItem.styled';
 import { ContactFormDelete, Modal } from 'components';
 
 export const ContactItem = ({ name, number, id }) => {
-  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  // const [showUpdateModal, setShowUpdateModal] = useState(false);
 
   return (
     <Contact>
@@ -15,15 +16,15 @@ export const ContactItem = ({ name, number, id }) => {
         <InfoText fwBig={true}>{name}</InfoText>
         <InfoText>{number}</InfoText>
       </Info>
-      <DeleteBtn type="button" onClick={() => setShowModal(s => !s)}>
+      <DeleteBtn type="button" onClick={() => setShowDeleteModal(true)}>
         <RiDeleteBin2Line size={30} />
       </DeleteBtn>
-      {showModal && (
-        <Modal toggleModal={() => setShowModal(s => !s)}>
+      {showDeleteModal && (
+        <Modal toggleModal={() => setShowDeleteModal(s => !s)}>
           <ContactFormDelete
             name={name}
             id={id}
-            closeModal={() => setShowModal(s => !s)}
+            closeModal={() => setShowDeleteModal(false)}
           />
         </Modal>
       )}

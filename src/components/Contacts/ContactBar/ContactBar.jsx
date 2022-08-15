@@ -7,12 +7,12 @@ export const ContactBar = () => {
   return (
     <>
       <Filter />
-      <button type="button" onClick={() => setShowModal(s => !s)}>
+      <button type="button" onClick={() => setShowModal(true)}>
         Create new contact
       </button>
       {showModal && (
         <Modal toggleModal={() => setShowModal(s => !s)}>
-          <ContactFormAdd closeModal={() => setShowModal(s => !s)} />
+          <ContactFormAdd closeModal={() => setShowModal(false)} />
         </Modal>
       )}
     </>
