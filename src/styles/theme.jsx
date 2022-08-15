@@ -32,8 +32,6 @@ export const theme = Object.freeze({
     textTitle: `1px 1px 1px #919191,
       1px 2px 1px #919191,
       1px 3px 1px #919191,
-      1px 4px 1px #919191,
-  1px 10px 15px rgba(16,16,16,0.2),
-  1px 20px 40px rgba(16,16,16,0.4)`,
+      1px 4px 1px #919191`,
   },
 });

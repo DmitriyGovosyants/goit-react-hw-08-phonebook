@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Title = styled.p`
   position: absolute;
-  top: -50px;
+  top: -60px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;

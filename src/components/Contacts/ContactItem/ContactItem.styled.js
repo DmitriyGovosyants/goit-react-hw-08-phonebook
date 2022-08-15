@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 
-export const Contact = styled.li`
+export const ContactBox = styled.li`
   display: flex;
   align-items: center;
 
   font-weight: 600;
   color: ${p => p.theme.colors.textColorSecond};
 
-  background-color: ${p => p.theme.colors.secondBgc};
+  background-color: #ffeeff;
   border-radius: 10px;
 
   :not(:last-child) {

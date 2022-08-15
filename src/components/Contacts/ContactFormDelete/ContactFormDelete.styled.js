@@ -4,30 +4,18 @@ export const ContactDeleteBox = styled.div`
   position: relative;
 `
 
-export const ApprovalText = styled.p`
+export const Text = styled.p`
   margin-bottom: ${p => p.theme.spacing(5)};
   font-size: 20px;
 `
 
-export const ApprovalBtnWrapper = styled.div`
+export const BtnList = styled.ul`
  display: flex;
  justify-content: center;
 `
 
-export const ApprovalBtn = styled.button`
-  padding: ${p => p.theme.spacing(2)};
-  margin-right: ${p => p.lastEl ? '0' : '20px'};
-
-  font-weight: 700;
-  color: ${p => p.theme.colors.textColorMain};
-  text-transform: uppercase;
-
-  background-color: ${p => p.theme.colors.btnBgc};
-  border-radius: 10px;
-  outline: none;
-  
-  :focus,
-  :hover {
-    background-color: ${p => p.theme.colors.btnBgcAccent};
-  }
+export const BtnItem = styled.li`
+:not(:last-child) {
+  margin-right: ${p => p.theme.spacing(5)};
+}
 `

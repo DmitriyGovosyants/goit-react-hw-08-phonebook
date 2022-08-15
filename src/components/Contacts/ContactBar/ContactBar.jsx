@@ -1,7 +1,7 @@
-import { ContactFormAdd, ContactFilter, Modal } from 'components';
 import { useState } from 'react';
-import { ContactBarBox, ContactAddBtn } from './ContactBar.styled';
+import { ContactFormAdd, ContactFilter, Modal } from 'components';
 import { FcPlus } from 'react-icons/fc';
+import { ContactBarBox, ContactAddBtn } from './ContactBar.styled';
 
 export const ContactBar = () => {
   const [showModal, setShowModal] = useState(false);

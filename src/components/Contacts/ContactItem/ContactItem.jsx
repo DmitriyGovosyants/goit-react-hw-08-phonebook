@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import { RiDeleteBin2Line } from 'react-icons/ri';
-import { BiUser } from 'react-icons/bi';
+import { MdDelete } from 'react-icons/md';
+import { FaUserTie } from 'react-icons/fa';
 import { useState } from 'react';
-import { Contact, Info, InfoText, DeleteBtn } from './ContactItem.styled';
+import { ContactBox, Info, InfoText, DeleteBtn } from './ContactItem.styled';
 import { ContactFormDelete, Modal } from 'components';
 
 export const ContactItem = ({ name, number, id }) => {
@@ -10,14 +10,14 @@ export const ContactItem = ({ name, number, id }) => {
   // const [showUpdateModal, setShowUpdateModal] = useState(false);
 
   return (
-    <Contact>
-      <BiUser size={30} style={{ flex: '0 0 30px' }} />
+    <ContactBox>
+      <FaUserTie size={50} style={{ flex: '0 0 50px' }} />
       <Info>
         <InfoText fwBig={true}>{name}</InfoText>
         <InfoText>{number}</InfoText>
       </Info>
       <DeleteBtn type="button" onClick={() => setShowDeleteModal(true)}>
-        <RiDeleteBin2Line size={30} />
+        <MdDelete size={30} />
       </DeleteBtn>
       {showDeleteModal && (
         <Modal toggleModal={() => setShowDeleteModal(s => !s)}>
@@ -28,7 +28,7 @@ export const ContactItem = ({ name, number, id }) => {
           />
         </Modal>
       )}
-    </Contact>
+    </ContactBox>
   );
 };
 

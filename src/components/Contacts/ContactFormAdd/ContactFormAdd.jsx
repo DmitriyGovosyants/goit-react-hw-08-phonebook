@@ -72,7 +72,7 @@ export const ContactFormAdd = ({ closeModal }) => {
       <FormInputText name={'number'} control={control} label={'Number'} />
       <ErrorMessage>{errors?.number?.message}</ErrorMessage>
 
-      <MainButton isLoading={isLoading}>
+      <MainButton btnType={'submit'} isLoading={isLoading}>
         {isLoading ? <Spinner /> : 'Create'}
       </MainButton>
     </ContactFormStyled>
