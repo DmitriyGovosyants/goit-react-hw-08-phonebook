@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { NavMenu, AuthMenu, UserMenu } from 'components';
 import {
   Section,
+  HeaderContainer,
   Container,
   Header,
   MenuBox,
@@ -11,6 +12,7 @@ import {
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { Spinner } from 'components';
+import Image from '../../data/background.jpg';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
@@ -20,14 +22,14 @@ export const SharedLayout = () => {
     !isRefreshing && (
       <>
         <Header>
-          <Container>
+          <HeaderContainer>
             <MenuBox>
               <NavMenu />
               {isLoggedIn ? <UserMenu /> : <AuthMenu />}
             </MenuBox>
-          </Container>
+          </HeaderContainer>
         </Header>
-        <Main>
+        <Main img={Image}>
           <Section>
             <Container>
               <Suspense fallback={<Spinner />}>
