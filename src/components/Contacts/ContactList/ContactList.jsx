@@ -22,7 +22,7 @@ export const ContactList = () => {
       toast.error('Server not response');
     }
 
-    return <div>Error query!</div>;
+    return <div>We couldn’t get a list of your contacts</div>;
   }
 
   if (isLoading) return <Spinner />;

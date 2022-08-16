@@ -29,14 +29,20 @@ export const InfoText = styled.p`
 `
 
 export const EditBtn = styled.button`
-  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 10%;
 
   color: ${p => p.theme.colors.btnBgc};
   outline: none;
-  transition: color ${p => p.theme.animation.cubicBezier};
+  transition: background-color ${p => p.theme.animation.cubicBezier} ,color ${p => p.theme.animation.cubicBezier};
 
   :hover,
   :focus {
+    background-color: white;
     color: ${p => p.theme.colors.btnBgcAccent};
   }
 `

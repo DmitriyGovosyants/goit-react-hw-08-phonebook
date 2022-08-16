@@ -8,6 +8,6 @@ export const Title = styled.p`
   font-weight: 700;
   letter-spacing: 0.03em;
   text-align: center;
-  color: #ddbbff;
+  color: ${p => p.theme.colors.titleColor};
   text-shadow: ${p => p.theme.shadow.textTitle};
 `

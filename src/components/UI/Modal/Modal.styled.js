@@ -11,6 +11,17 @@ export const Overlay = styled.div`
 
   background-color: rgba(0, 0, 0, 0.15);
   overflow-y: scroll;
+  animation-name: backdrop;
+  animation-duration: 300ms;
+  animation-timing-function: ease;
+  @keyframes backdrop {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `
 
 export const ModalContent = styled.div`

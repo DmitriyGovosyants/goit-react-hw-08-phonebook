@@ -6,6 +6,6 @@ export const Title = styled.h1`
   font-size: ${p => p.theme.fontSizes.titleBig};
   font-weight: 700;
   text-align: center;
-  color: ${p => p.theme.colors.titleColor};
+  color: ${p => p.theme.colors.mainTitleColor};
   text-shadow: ${p => p.theme.shadow.textTitleBig};
 `

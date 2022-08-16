@@ -8,7 +8,7 @@ export const NavMenu = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
-    <nav>
+    <nav style={{ height: '50px', display: 'flex' }}>
       <GridList>
         <GridItem>
           <MenuLink to="/">Home</MenuLink>

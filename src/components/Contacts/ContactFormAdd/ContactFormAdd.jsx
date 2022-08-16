@@ -41,7 +41,6 @@ export const ContactFormAdd = ({ closeModal }) => {
 
     try {
       await addNewContact({ name, number }).unwrap();
-      toast.info(`${name} is added to contacts`);
     } catch (error) {
       if (error.status === 400) {
         toast.error(error.data.message);

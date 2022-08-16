@@ -8,11 +8,16 @@ export const MenuLink = styled(NavLink)`
   font-weight: 700;
   color: #296d98;
   border-radius: 10px;
-  transition: background-color ${p => p.theme.animation.cubicBezier};
+  border: 1px solid transparent;
+  transition: background-color ${p => p.theme.animation.cubicBezier}, box-shadow ${p => p.theme.animation.cubicBezier};
   
-  &.active,
+  &.active {
+    background-color: #ffffff;
+    box-shadow: 3px 3px 5px black;
+  }
+
   :hover {
-    background-color: white;
+    background-color: #ffffff;
   }
 `
 
@@ -23,9 +28,11 @@ export const MenuBtn = styled.button`
   font-weight: 700;
   color: #296d98;
   border-radius: 10px;
-  transition: background-color ${p => p.theme.animation.cubicBezier};
+  background-color: #eeaa47;
+  transition: background-color ${p => p.theme.animation.cubicBezier}, color ${p => p.theme.animation.cubicBezier};
   
   :hover {
-    background-color: white;
+    color: #290000;
+    background-color: #00aa47;
   }
 `

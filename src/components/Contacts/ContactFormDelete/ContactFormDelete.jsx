@@ -11,7 +11,6 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
   const handleDelete = async () => {
     try {
       await deleteContact(id).unwrap();
-      toast.info(`Contact ${name} deleted`);
     } catch (error) {
       if (error.status === 401) {
         toast.error(error.data.message);

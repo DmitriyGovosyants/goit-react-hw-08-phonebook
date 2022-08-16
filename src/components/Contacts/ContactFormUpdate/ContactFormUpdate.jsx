@@ -40,7 +40,6 @@ export const ContactFormUpdate = ({ closeModal, name, number, id }) => {
 
     try {
       await updateContact({ id, name, number }).unwrap();
-      toast.info(`${name} is updated`);
     } catch (error) {
       if (error.status === 400) {
         toast.error(error.data.message);

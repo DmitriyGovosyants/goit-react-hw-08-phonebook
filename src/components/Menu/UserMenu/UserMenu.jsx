@@ -3,11 +3,11 @@ import authSelectors from 'redux/auth/authSelectors';
 import { useLogOutMutation } from 'redux/auth/authApi';
 import { contactsApi } from 'redux/contacts/contactsApi';
 import { store } from 'redux/store';
-import { GridList } from 'components';
+import { GridList, GridItem } from 'components';
 import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { toast } from 'react-toastify';
-import { GoArrowRight } from 'react-icons/go';
-import { UserMenuText } from './UserMenu.styled';
+import { ImEnter } from 'react-icons/im';
+import { UserMenuText, UserMenuBox } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const userName = useSelector(authSelectors.getUserName);
@@ -32,12 +32,17 @@ export const UserMenu = () => {
 
   return (
     <GridList>
-      <GoArrowRight size={26} color={'#296d98'} />
-      <UserMenuText>{userName}</UserMenuText>
-
-      <MenuBtn type="button" onClick={handleLogOut}>
-        Log out
-      </MenuBtn>
+      <GridItem>
+        <UserMenuBox>
+          <ImEnter size={20} color={'#296d98'} />
+          <UserMenuText>{userName}</UserMenuText>
+        </UserMenuBox>
+      </GridItem>
+      <GridItem>
+        <MenuBtn type="button" onClick={handleLogOut}>
+          Log out
+        </MenuBtn>
+      </GridItem>
     </GridList>
   );
 };

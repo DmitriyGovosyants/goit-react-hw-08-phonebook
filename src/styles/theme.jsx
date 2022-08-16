@@ -1,6 +1,7 @@
 export const theme = Object.freeze({
   colors: {
-    titleColor: '#f5f5f5',
+    mainTitleColor: '#f5f5f5',
+    titleColor: '#1976d2',
     textColorMain: '#ffffff',
     textColorSecond: '#173d6e',
 
@@ -30,11 +31,8 @@ export const theme = Object.freeze({
       1px 6px 1px #919191,
       1px 7px 1px #919191,
   1px 10px 3px rgba(16,16,16,0.4),
-  1px 25px 35px rgba(16,16,16,0.2),
-  1px 30px 60px rgba(16,16,16,0.4)`,
+  1px 25px 35px rgba(16,16,16,0.2)`,
     textTitle: `1px 1px 1px #919191,
-      1px 2px 1px #919191,
-      1px 3px 1px #919191,
-      1px 4px 1px #919191`,
+      1px 2px 1px #919191`,
   },
 });

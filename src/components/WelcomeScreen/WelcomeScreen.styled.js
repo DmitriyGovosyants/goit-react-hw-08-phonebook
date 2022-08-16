@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const MainText = styled.p`
   font-size: 30px;
   font-weight: 700;
-  line-height: 2;
+  line-height: 3;
   color: #296d98;
 `
 
