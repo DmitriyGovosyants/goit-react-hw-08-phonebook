@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import { useLogInMutation } from 'redux/auth/authApi';
@@ -9,11 +8,8 @@ import {
   FormErrorMessage,
   MainButton,
 } from 'components';
-
-const schema = Yup.object({
-  email: Yup.string().required('Required'),
-  password: Yup.string().required('Required'),
-});
+import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
+import { logInSchema } from 'helpers/formValidation';
 
 export const LoginForm = () => {
   const [logIn, { isLoading }] = useLogInMutation();
@@ -24,7 +20,7 @@ export const LoginForm = () => {
     control,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(logInSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -48,20 +44,22 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <FormInputText name={'email'} control={control} label={'Email'} />
-      <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
+      <FormContainer>
+        <FormInputText name={'email'} control={control} label={'Email'} />
+        <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
-      <FormInputText
-        name={'password'}
-        control={control}
-        label={'Password'}
-        type={'password'}
-      />
-      <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>
+        <FormInputText
+          name={'password'}
+          control={control}
+          label={'Password'}
+          type={'password'}
+        />
+        <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>
 
-      <MainButton btnType={'submit'} isLoading={isLoading}>
-        {isLoading ? <Spinner /> : 'Log in'}
-      </MainButton>
+        <MainButton btnType={'submit'} isLoading={isLoading}>
+          {isLoading ? <Spinner /> : 'Log in'}
+        </MainButton>
+      </FormContainer>
     </form>
   );
 };

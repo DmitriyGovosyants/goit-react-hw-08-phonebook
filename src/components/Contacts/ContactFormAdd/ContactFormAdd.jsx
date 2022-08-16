@@ -11,7 +11,7 @@ import {
   FormTitle,
   FormErrorMessage,
 } from 'components';
-import { schema } from 'helpers/validation';
+import { addContactSchema } from 'helpers/formValidation';
 
 import { toast } from 'react-toastify';
 import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
@@ -26,7 +26,7 @@ export const ContactFormAdd = ({ closeModal }) => {
     control,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(addContactSchema),
     defaultValues: {
       name: '',
       number: '',

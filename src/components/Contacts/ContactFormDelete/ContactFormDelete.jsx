@@ -2,6 +2,7 @@ import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
 import { Text } from './ContactFormDelete.styled';
 import { FormTitle, MainButton, Spinner, GridList, GridItem } from 'components';
+import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
 
 export const ContactFormDelete = ({ name, id, closeModal }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -26,7 +27,7 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
   };
 
   return (
-    <>
+    <FormContainer>
       <FormTitle>Delete Contact</FormTitle>
       <Text>Do you really want to delete this contact?</Text>
       <GridList>
@@ -39,6 +40,6 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
           </MainButton>
         </GridItem>
       </GridList>
-    </>
+    </FormContainer>
   );
 };

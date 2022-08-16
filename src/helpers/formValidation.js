@@ -4,7 +4,7 @@ const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-я
 const phoneRegExp =
   /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
-export const schema = Yup.object({
+export const addContactSchema = Yup.object({
   name: Yup.string()
     .matches(
       nameRegExp,
@@ -19,4 +19,15 @@ export const schema = Yup.object({
       '* Phone number must be digits, contain 6 digits, can contain spaces, dashes, parentheses and can start with +'
     )
     .required('Required'),
+});
+
+export const signInSchema = Yup.object({
+  name: Yup.string().min(2).max(30).matches(/[A-Z]/, 'must contain one uppercase').required('Required'),
+  email: Yup.string().email("Field should contain a valid e-mail").max(255).required("E-mail is required"),
+  password: Yup.string().min(7).required('Password is required'),
+});
+
+export const logInSchema = Yup.object({
+  email: Yup.string().email("Field should contain a valid e-mail").max(255).required("E-mail is required"),
+  password: Yup.string().required('Password is required'),
 });

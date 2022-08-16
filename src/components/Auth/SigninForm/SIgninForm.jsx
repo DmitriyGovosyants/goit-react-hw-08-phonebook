@@ -1,5 +1,4 @@
 import { useForm } from 'react-hook-form';
-import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import { useRegisterMutation } from 'redux/auth/authApi';
@@ -9,12 +8,8 @@ import {
   FormErrorMessage,
   MainButton,
 } from 'components';
-
-const schema = Yup.object({
-  name: Yup.string().required('Required'),
-  email: Yup.string().required('Required'),
-  password: Yup.string().required('Required'),
-});
+import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
+import { signInSchema } from 'helpers/formValidation';
 
 export const SigninForm = () => {
   const [addNewUser, { isLoading }] = useRegisterMutation();
@@ -25,7 +20,7 @@ export const SigninForm = () => {
     control,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(signInSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -54,23 +49,25 @@ export const SigninForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <FormInputText name={'name'} control={control} label={'Name'} />
-      <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
+      <FormContainer>
+        <FormInputText name={'name'} control={control} label={'Name'} />
+        <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-      <FormInputText name={'email'} control={control} label={'Email'} />
-      <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
+        <FormInputText name={'email'} control={control} label={'Email'} />
+        <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
-      <FormInputText
-        name={'password'}
-        control={control}
-        label={'Password'}
-        type={'password'}
-      />
-      <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>
+        <FormInputText
+          name={'password'}
+          control={control}
+          label={'Password'}
+          type={'password'}
+        />
+        <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>
 
-      <MainButton btnType={'submit'} isLoading={isLoading}>
-        {isLoading ? <Spinner /> : 'Sign in'}
-      </MainButton>
+        <MainButton btnType={'submit'} isLoading={isLoading}>
+          {isLoading ? <Spinner /> : 'Sign in'}
+        </MainButton>
+      </FormContainer>
     </form>
   );
 };
