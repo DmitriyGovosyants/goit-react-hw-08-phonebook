@@ -4,7 +4,6 @@ import { useGetCurrentUserQuery } from 'redux/auth/authApi';
 import { toast } from 'react-toastify';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { store } from 'redux/store';
-import { authSlice } from './authSlice';
 
 export const GetCurrentUser = async () => {
   const token = useSelector(authSelectors.getToken);
@@ -19,7 +18,6 @@ export const GetCurrentUser = async () => {
   } catch (error) {
     if (error.status === 401) {
       toast.error(error.data.message);
-      // store.dispatch(authSlice.token === null);
       store.authSlice.token()
     }
     if (error.originalStatus === 404) {
