@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { Text } from './ContactFormDelete.styled';
 import { FormTitle, MainButton, Spinner, GridList, GridItem } from 'components';
 import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
+import { FormBtnClose } from 'components/UI/FormBtnClose/FormBtnClose';
 
 export const ContactFormDelete = ({ name, id, closeModal }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -28,6 +29,7 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
 
   return (
     <FormContainer>
+      <FormBtnClose onClick={() => closeModal()} />
       <FormTitle>Delete Contact</FormTitle>
       <Text>Do you really want to delete this contact?</Text>
       <GridList>

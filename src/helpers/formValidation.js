@@ -12,17 +12,17 @@ export const addContactSchema = Yup.object({
     )
     .min(2)
     .max(30)
-    .required('Required'),
+    .required('Name is required'),
   number: Yup.string()
     .matches(
       phoneRegExp,
       '* Phone number must be digits, contain 6 digits, can contain spaces, dashes, parentheses and can start with +'
     )
-    .required('Required'),
+    .required('Number is required'),
 });
 
 export const signInSchema = Yup.object({
-  name: Yup.string().min(2).max(30).matches(/[A-Z]/, 'must contain one uppercase').required('Required'),
+  name: Yup.string().min(2).max(30).matches(/[A-Z]/, 'must contain one uppercase').required('Name is required'),
   email: Yup.string().email("Field should contain a valid e-mail").max(255).required("E-mail is required"),
   password: Yup.string().min(7).required('Password is required'),
 });

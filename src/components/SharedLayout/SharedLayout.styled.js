@@ -6,6 +6,7 @@ export const Header = styled.header`
   top: 0;
   left: 50%;
   transform: translate(-50%);
+  z-index: 1000;
   
   display: flex;
   width: 100%;

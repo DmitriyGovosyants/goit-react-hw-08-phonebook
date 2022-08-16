@@ -6,7 +6,7 @@ import { store } from 'redux/store';
 import { GridList } from 'components';
 import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { toast } from 'react-toastify';
-import { DiReact } from 'react-icons/di';
+import { GoArrowRight } from 'react-icons/go';
 import { UserMenuText } from './UserMenu.styled';
 
 export const UserMenu = () => {
@@ -32,8 +32,9 @@ export const UserMenu = () => {
 
   return (
     <GridList>
-      <DiReact size={30} color={'#296d98'} />
-      <UserMenuText>Hello, {userName}!</UserMenuText>
+      <GoArrowRight size={26} color={'#296d98'} />
+      <UserMenuText>{userName}</UserMenuText>
+
       <MenuBtn type="button" onClick={handleLogOut}>
         Log out
       </MenuBtn>

@@ -15,6 +15,7 @@ import { addContactSchema } from 'helpers/formValidation';
 
 import { toast } from 'react-toastify';
 import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
+import { FormBtnClose } from 'components/UI/FormBtnClose/FormBtnClose';
 
 export const ContactFormAdd = ({ closeModal }) => {
   const [updatePost, { isLoading }] = useAddContactMutation();
@@ -60,6 +61,7 @@ export const ContactFormAdd = ({ closeModal }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>
+        <FormBtnClose onClick={() => closeModal()} />
         <FormTitle>New Contact</FormTitle>
 
         <FormInputText name={'name'} control={control} label={'Name'} />

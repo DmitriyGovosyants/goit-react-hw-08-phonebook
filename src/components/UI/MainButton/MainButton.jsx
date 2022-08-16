@@ -8,7 +8,7 @@ export const MainButton = ({
 }) => {
   return (
     <Button
-      sx={{ minWidth: '150px' }}
+      sx={{ minWidth: '120px' }}
       type={btnType}
       onClick={onClick}
       disabled={isLoading}

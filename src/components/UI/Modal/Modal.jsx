@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Overlay, ModalContent } from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
+const body = document.getElementsByTagName('body')[0];
 
 export const Modal = ({ children, toggleModal }) => {
   useEffect(() => {
@@ -14,9 +16,11 @@ export const Modal = ({ children, toggleModal }) => {
     };
 
     window.addEventListener('keydown', handleKeyDown);
+    disableBodyScroll(body);
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+      enableBodyScroll(body);
     };
   }, [toggleModal]);
 

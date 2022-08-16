@@ -8,12 +8,22 @@ export const GlobalStyles = css`
   }
   body {
     margin: 0;
+    min-height: 100vh;
+
+    font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
-    background: ${theme.colors.mainBgc};
-    min-height: 100vh;
     font-style: normal;
+
+    background: ${theme.colors.mainBgc};
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
   }
   h1,
   h2,
