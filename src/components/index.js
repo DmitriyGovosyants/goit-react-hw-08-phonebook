@@ -12,6 +12,7 @@ export * from './Contacts/ContactBar/ContactBar';
 export * from './Contacts/ContactFilter/ContactFilter';
 export * from './Contacts/ContactFormAdd/ContactFormAdd';
 export * from './Contacts/ContactFormDelete/ContactFormDelete';
+export * from './Contacts/ContactFormUpdate/ContactFormUpdate';
 export * from './Contacts/ContactList/ContactList';
 export * from './Contacts/ContactItem/ContactItem';
 

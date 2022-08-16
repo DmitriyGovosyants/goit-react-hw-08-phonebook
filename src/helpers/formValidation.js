@@ -4,7 +4,7 @@ const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-я
 const phoneRegExp =
   /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
 
-export const addContactSchema = Yup.object({
+export const contactSchema = Yup.object({
   name: Yup.string()
     .matches(
       nameRegExp,

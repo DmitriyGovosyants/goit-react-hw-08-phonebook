@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
-  useAddContactMutation,
+  useUpdateContactMutation,
   useGetContactsQuery,
 } from 'redux/contacts/contactsApi';
 import {
@@ -17,31 +17,30 @@ import { toast } from 'react-toastify';
 import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
 import { FormBtnClose } from 'components/UI/FormBtnClose/FormBtnClose';
 
-export const ContactFormAdd = ({ closeModal }) => {
-  const [addNewContact, { isLoading }] = useAddContactMutation();
+export const ContactFormUpdate = ({ closeModal, name, number, id }) => {
+  const [updateContact, { isLoading }] = useUpdateContactMutation();
   const { data: contacts } = useGetContactsQuery('');
 
   const {
     handleSubmit,
-    reset,
     control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(contactSchema),
     defaultValues: {
-      name: '',
-      number: '',
+      name,
+      number,
     },
   });
 
   const onSubmit = async ({ name, number }) => {
-    if (contacts?.find(e => e.name === name)) {
-      return toast.warn(`${name} is already in contacts`);
+    if (contacts?.find(e => e.name === name && e.number === number)) {
+      return toast.warn('You made no changes');
     }
 
     try {
-      await addNewContact({ name, number }).unwrap();
-      toast.info(`${name} is added to contacts`);
+      await updateContact({ id, name, number }).unwrap();
+      toast.info(`${name} is updated`);
     } catch (error) {
       if (error.status === 400) {
         toast.error(error.data.message);
@@ -54,7 +53,6 @@ export const ContactFormAdd = ({ closeModal }) => {
       }
     }
 
-    reset();
     closeModal();
   };
 
@@ -62,7 +60,7 @@ export const ContactFormAdd = ({ closeModal }) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>
         <FormBtnClose onClick={() => closeModal()} />
-        <FormTitle>New Contact</FormTitle>
+        <FormTitle>Update Contact</FormTitle>
 
         <FormInputText name={'name'} control={control} label={'Name'} />
         <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
@@ -71,7 +69,7 @@ export const ContactFormAdd = ({ closeModal }) => {
         <FormErrorMessage>{errors?.number?.message}</FormErrorMessage>
 
         <MainButton btnType={'submit'} isLoading={isLoading}>
-          {isLoading ? <Spinner /> : 'Create'}
+          {isLoading ? <Spinner /> : 'Update'}
         </MainButton>
       </FormContainer>
     </form>

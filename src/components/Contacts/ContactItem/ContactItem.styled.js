@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const ContactBox = styled.li`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: ${p => p.theme.spacing(1)} ${p => p.theme.spacing(3)};
 
@@ -27,7 +28,7 @@ export const InfoText = styled.p`
   color: ${p => p.theme.colors.textColorSecond};
 `
 
-export const DeleteBtn = styled.button`
+export const EditBtn = styled.button`
   margin-left: auto;
 
   color: ${p => p.theme.colors.btnBgc};
