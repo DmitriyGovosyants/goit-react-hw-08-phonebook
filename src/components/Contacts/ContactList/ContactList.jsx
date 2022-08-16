@@ -7,9 +7,7 @@ export const ContactList = () => {
   const filter = useSelector(({ filter }) => filter.toLowerCase());
   const { data: contacts, isLoading, isError, error } = useGetContactsQuery('');
 
-  const filteredContacts = contacts?.filter(contact =>
-    contact.name.toLowerCase().includes(filter)
-  );
+  if (isLoading) return <Spinner />;
 
   if (isError) {
     if (error.status === 401) {
@@ -25,14 +23,17 @@ export const ContactList = () => {
     return <div>We couldn’t get a list of your contacts</div>;
   }
 
-  if (isLoading) return <Spinner />;
+  if (contacts) {
+    const sortedAndFilteredContacts = [...contacts]
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .filter(contact => contact.name.toLowerCase().includes(filter));
 
-  if (contacts)
     return (
       <ul>
-        {filteredContacts.map(({ name, number, id }) => {
+        {sortedAndFilteredContacts.map(({ name, number, id }) => {
           return <ContactItem key={id} id={id} name={name} number={number} />;
         })}
       </ul>
     );
+  }
 };

@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types';
 import { MdDelete } from 'react-icons/md';
-import { FaUserTie, FaPen } from 'react-icons/fa';
+import { FaPen } from 'react-icons/fa';
 import { useState } from 'react';
-import { ContactBox, Info, InfoText, EditBtn } from './ContactItem.styled';
+import {
+  ContactBox,
+  AvatarBox,
+  Avatar,
+  Info,
+  InfoText,
+  EditBtn,
+} from './ContactItem.styled';
 import {
   ContactFormDelete,
   ContactFormUpdate,
@@ -15,9 +22,13 @@ export const ContactItem = ({ name, number, id }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
 
+  const firstLetter = name.slice(0, 1).toUpperCase();
+
   return (
     <ContactBox>
-      <FaUserTie size={50} style={{ flex: '0 0 50px' }} />
+      <AvatarBox>
+        <Avatar>{firstLetter}</Avatar>
+      </AvatarBox>
       <Info>
         <InfoText fwBig={true}>{name}</InfoText>
         <InfoText>{number}</InfoText>

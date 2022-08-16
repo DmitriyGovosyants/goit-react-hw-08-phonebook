@@ -14,6 +14,21 @@ export const ContactBox = styled.li`
   }
 `
 
+export const AvatarBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  background-color: tomato;
+`
+
+export const Avatar = styled.p`
+  font-size: 32px;
+`
+
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
