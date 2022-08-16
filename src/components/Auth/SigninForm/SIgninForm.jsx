@@ -50,16 +50,16 @@ export const SigninForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>
-        <FormInputText name={'name'} control={control} label={'Name'} />
+        <FormInputText name={'name'} control={control} label={'Name*'} />
         <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-        <FormInputText name={'email'} control={control} label={'Email'} />
+        <FormInputText name={'email'} control={control} label={'Email*'} />
         <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
         <FormInputText
           name={'password'}
           control={control}
-          label={'Password'}
+          label={'Password*'}
           type={'password'}
         />
         <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>

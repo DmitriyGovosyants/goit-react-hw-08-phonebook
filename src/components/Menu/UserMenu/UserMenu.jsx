@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { useLogOutMutation } from 'redux/auth/authApi';
-import { contactsApi } from 'redux/contacts/contactsApi';
-import { store } from 'redux/store';
 import { GridList, GridItem } from 'components';
 import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { toast } from 'react-toastify';
-import { ImEnter } from 'react-icons/im';
+import { SiMailchimp } from 'react-icons/si';
 import { UserMenuText, UserMenuBox } from './UserMenu.styled';
 
 export const UserMenu = () => {
@@ -27,14 +25,13 @@ export const UserMenu = () => {
         toast.error('Server not response');
       }
     }
-    store.dispatch(contactsApi.util.resetApiState());
   };
 
   return (
     <GridList>
       <GridItem>
         <UserMenuBox>
-          <ImEnter size={20} color={'#296d98'} />
+          <SiMailchimp size={30} color={'#648864'} />
           <UserMenuText>{userName}</UserMenuText>
         </UserMenuBox>
       </GridItem>

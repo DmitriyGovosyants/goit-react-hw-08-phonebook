@@ -63,10 +63,10 @@ export const ContactFormAdd = ({ closeModal }) => {
         <FormBtnClose onClick={() => closeModal()} />
         <FormTitle>New Contact</FormTitle>
 
-        <FormInputText name={'name'} control={control} label={'Name'} />
+        <FormInputText name={'name'} control={control} label={'Name*'} />
         <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-        <FormInputText name={'number'} control={control} label={'Number'} />
+        <FormInputText name={'number'} control={control} label={'Number*'} />
         <FormErrorMessage>{errors?.number?.message}</FormErrorMessage>
 
         <MainButton btnType={'submit'} isLoading={isLoading}>

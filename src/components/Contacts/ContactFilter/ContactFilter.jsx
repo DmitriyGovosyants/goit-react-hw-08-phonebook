@@ -14,6 +14,7 @@ export const ContactFilter = () => {
         onChange={e => dispatch(filterContacts(e.currentTarget.value))}
         value={filter}
         label={'Find contacts by name'}
+        variant="filled"
       />
     </FilterContainer>
   );

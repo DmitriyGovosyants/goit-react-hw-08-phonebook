@@ -8,7 +8,6 @@ export const GlobalStyles = css`
   }
   body {
     margin: 0;
-    min-height: 100vh;
 
     font-size: 16px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',

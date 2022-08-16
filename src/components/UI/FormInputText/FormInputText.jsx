@@ -8,11 +8,12 @@ export const FormInputText = ({ name, control, label, type = 'text' }) => {
       control={control}
       render={({ field: { onChange, value } }) => (
         <TextField
-          sx={{ width: '100%', backgroundColor: '#ffeeff' }}
+          sx={{ width: '100%', backgroundColor: '#ffeeff', color: 'red' }}
           onChange={onChange}
           value={value}
           label={label}
           type={type}
+          variant="filled"
         />
       )}
     />

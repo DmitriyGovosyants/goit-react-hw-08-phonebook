@@ -45,13 +45,13 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>
-        <FormInputText name={'email'} control={control} label={'Email'} />
+        <FormInputText name={'email'} control={control} label={'Email*'} />
         <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
         <FormInputText
           name={'password'}
           control={control}
-          label={'Password'}
+          label={'Password*'}
           type={'password'}
         />
         <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>

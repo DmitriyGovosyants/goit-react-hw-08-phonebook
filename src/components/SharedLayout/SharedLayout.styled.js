@@ -32,9 +32,6 @@ export const HeaderContainer = styled.div`
   ${device.tablet} {
     width: 768px;
   }
-  ${device.laptop} {
-    width: 992px;
-  }
 `
 
 export const Container = styled.div`
@@ -59,9 +56,14 @@ export const MenuBox = styled.div`
 export const Main = styled.main`
   min-height: calc(100vh - 60px);
   margin-top: ${p => p.theme.spacing(15)};
-  background-image: url(${props => props.img});
+  background-image: linear-gradient(
+            to right,
+            rgba(47, 48, 58, 0.6),
+            rgba(47, 48, 58, 0.6)
+          ), url(${props => props.img});
   background-repeat: no-repeat;
-  background-position: center;
+  /* background-position: center; */
+  background-attachment: fixed;
   background-size: cover;
 `
 

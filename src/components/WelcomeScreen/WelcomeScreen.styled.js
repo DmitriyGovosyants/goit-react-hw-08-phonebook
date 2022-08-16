@@ -5,22 +5,22 @@ export const MainText = styled.p`
   font-size: 30px;
   font-weight: 700;
   line-height: 3;
-  color: #296d98;
+  color: white;
 `
 
 export const Text = styled.p`
   font-size: 20px;
   line-height: 2;
-  color: ${p => p.success ? '#296d98': 'inherit'};
+  color: white;
 `
 
 export const WelcomeLink = styled(Link)`
   font-weight: 700;
   text-decoration: underline;
-  color: #296d98;
+  color: white;
   transition: color ${p => p.theme.animation.cubicBezier};
 
   :hover {
-    color: #290098;
+    color: tomato;
   }
 `
