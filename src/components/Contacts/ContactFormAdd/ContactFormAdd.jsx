@@ -14,17 +14,7 @@ import {
 import { schema } from 'helpers/validation';
 
 import { toast } from 'react-toastify';
-import styled from '@emotion/styled';
-
-const ContactFormStyled = styled.form`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 400px;
-
-  border-radius: 20px;
-`;
+import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
 
 export const ContactFormAdd = ({ closeModal }) => {
   const [updatePost, { isLoading }] = useAddContactMutation();
@@ -68,18 +58,20 @@ export const ContactFormAdd = ({ closeModal }) => {
   };
 
   return (
-    <ContactFormStyled onSubmit={handleSubmit(onSubmit)}>
-      <FormTitle>New Contact</FormTitle>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <FormContainer>
+        <FormTitle>New Contact</FormTitle>
 
-      <FormInputText name={'name'} control={control} label={'Name'} />
-      <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
+        <FormInputText name={'name'} control={control} label={'Name'} />
+        <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-      <FormInputText name={'number'} control={control} label={'Number'} />
-      <FormErrorMessage>{errors?.number?.message}</FormErrorMessage>
+        <FormInputText name={'number'} control={control} label={'Number'} />
+        <FormErrorMessage>{errors?.number?.message}</FormErrorMessage>
 
-      <MainButton btnType={'submit'} isLoading={isLoading}>
-        {isLoading ? <Spinner /> : 'Create'}
-      </MainButton>
-    </ContactFormStyled>
+        <MainButton btnType={'submit'} isLoading={isLoading}>
+          {isLoading ? <Spinner /> : 'Create'}
+        </MainButton>
+      </FormContainer>
+    </form>
   );
 };

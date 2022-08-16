@@ -3,8 +3,11 @@ import authSelectors from 'redux/auth/authSelectors';
 import { useLogOutMutation } from 'redux/auth/authApi';
 import { contactsApi } from 'redux/contacts/contactsApi';
 import { store } from 'redux/store';
-import { UserMenuContainer } from './UserMenu.styled';
+import { GridList } from 'components';
+import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { toast } from 'react-toastify';
+import { DiReact } from 'react-icons/di';
+import { UserMenuText } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const userName = useSelector(authSelectors.getUserName);
@@ -28,11 +31,12 @@ export const UserMenu = () => {
   };
 
   return (
-    <UserMenuContainer>
-      <p>Hello, {userName}</p>
-      <button type="button" onClick={handleLogOut}>
+    <GridList>
+      <DiReact size={30} color={'#296d98'} />
+      <UserMenuText>Hello, {userName}!</UserMenuText>
+      <MenuBtn type="button" onClick={handleLogOut}>
         Log out
-      </button>
-    </UserMenuContainer>
+      </MenuBtn>
+    </GridList>
   );
 };

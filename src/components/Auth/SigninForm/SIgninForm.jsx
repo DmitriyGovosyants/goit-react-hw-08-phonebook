@@ -3,7 +3,12 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import { useRegisterMutation } from 'redux/auth/authApi';
-import { Spinner } from 'components';
+import {
+  Spinner,
+  FormInputText,
+  FormErrorMessage,
+  MainButton,
+} from 'components';
 
 const schema = Yup.object({
   name: Yup.string().required('Required'),
@@ -15,9 +20,9 @@ export const SigninForm = () => {
   const [addNewUser, { isLoading }] = useRegisterMutation();
 
   const {
-    register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -49,21 +54,23 @@ export const SigninForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="name">Name</label>
-      <input type="text" {...register('name')} />
-      <p>{errors.name?.message}</p>
+      <FormInputText name={'name'} control={control} label={'Name'} />
+      <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-      <label htmlFor="email">Email</label>
-      <input type="email" {...register('email')} />
-      <p>{errors.email?.message}</p>
+      <FormInputText name={'email'} control={control} label={'Email'} />
+      <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
-      <label htmlFor="password">Password</label>
-      <input type="password" {...register('password')} />
-      <p>{errors.password?.message}</p>
+      <FormInputText
+        name={'password'}
+        control={control}
+        label={'Password'}
+        type={'password'}
+      />
+      <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>
 
-      <button type="submit" disabled={isLoading}>
+      <MainButton btnType={'submit'} isLoading={isLoading}>
         {isLoading ? <Spinner /> : 'Sign in'}
-      </button>
+      </MainButton>
     </form>
   );
 };

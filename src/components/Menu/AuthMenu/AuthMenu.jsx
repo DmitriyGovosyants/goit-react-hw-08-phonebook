@@ -1,15 +1,15 @@
 import { routesPath } from 'router';
 import { GridList, GridItem } from 'components';
-import { MainLink } from './AuthMenu.styled';
+import { MenuLink } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 
 export const AuthMenu = () => {
   return (
     <GridList>
       <GridItem>
-        <MainLink to={routesPath.register}>Sign in</MainLink>
+        <MenuLink to={routesPath.register}>Sign in</MenuLink>
       </GridItem>
       <GridItem>
-        <MainLink to={routesPath.login}>Log in</MainLink>
+        <MenuLink to={routesPath.login}>Log in</MenuLink>
       </GridItem>
     </GridList>
   );

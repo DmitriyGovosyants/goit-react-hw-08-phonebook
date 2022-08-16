@@ -3,7 +3,12 @@ import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import { useLogInMutation } from 'redux/auth/authApi';
-import { Spinner } from 'components';
+import {
+  Spinner,
+  FormInputText,
+  FormErrorMessage,
+  MainButton,
+} from 'components';
 
 const schema = Yup.object({
   email: Yup.string().required('Required'),
@@ -14,9 +19,9 @@ export const LoginForm = () => {
   const [logIn, { isLoading }] = useLogInMutation();
 
   const {
-    register,
     handleSubmit,
     reset,
+    control,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -43,17 +48,20 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="email">Email</label>
-      <input type="email" {...register('email')} />
-      <p>{errors.email?.message}</p>
+      <FormInputText name={'email'} control={control} label={'Email'} />
+      <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
-      <label htmlFor="password">Password</label>
-      <input type="password" {...register('password')} />
-      <p>{errors.password?.message}</p>
+      <FormInputText
+        name={'password'}
+        control={control}
+        label={'Password'}
+        type={'password'}
+      />
+      <FormErrorMessage>{errors?.password?.message}</FormErrorMessage>
 
-      <button type="submit" disabled={isLoading}>
-        {isLoading ? <Spinner /> : 'Sign in'}
-      </button>
+      <MainButton btnType={'submit'} isLoading={isLoading}>
+        {isLoading ? <Spinner /> : 'Log in'}
+      </MainButton>
     </form>
   );
 };

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
-export const UserMenuContainer = styled.div`
-  display: flex;
+export const UserMenuText = styled.p`
+  margin-right: ${p => p.theme.spacing(2)};
+  text-decoration: underline;
 `

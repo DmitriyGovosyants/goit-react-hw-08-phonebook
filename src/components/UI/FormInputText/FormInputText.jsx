@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField';
 import { Controller } from 'react-hook-form';
 
-export const FormInputText = ({ name, control, label }) => {
+export const FormInputText = ({ name, control, label, type = 'text' }) => {
   return (
     <Controller
       name={name}
@@ -12,6 +12,7 @@ export const FormInputText = ({ name, control, label }) => {
           onChange={onChange}
           value={value}
           label={label}
+          type={type}
         />
       )}
     />

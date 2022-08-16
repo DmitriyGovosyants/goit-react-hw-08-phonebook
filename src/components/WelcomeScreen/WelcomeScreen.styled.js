@@ -11,11 +11,16 @@ export const MainText = styled.p`
 export const Text = styled.p`
   font-size: 20px;
   line-height: 2;
-  color: ${p => p.success ? 'blue': 'inherit'};
+  color: ${p => p.success ? '#296d98': 'inherit'};
 `
 
 export const WelcomeLink = styled(Link)`
   font-weight: 700;
   text-decoration: underline;
-  color: 	#296d98;
+  color: #296d98;
+  transition: color ${p => p.theme.animation.cubicBezier};
+
+  :hover {
+    color: #290098;
+  }
 `
