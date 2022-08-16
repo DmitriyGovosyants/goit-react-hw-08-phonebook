@@ -22,7 +22,6 @@ export const Info = styled.div`
 `
 
 export const InfoText = styled.p`
-  
   padding: ${p => p.theme.spacing(2)};
   font-size: ${p => p.theme.fontSizes.medium};
   font-weight: ${p => p.fwBig ? 700 : 400};

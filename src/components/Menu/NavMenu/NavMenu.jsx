@@ -1,23 +1,24 @@
 import { useSelector } from 'react-redux';
 import { routesPath } from 'router';
 import authSelectors from 'redux/auth/authSelectors';
-import { NavList, LinkList, MainLink } from './NavMenu.styled';
+import { NavList, MainLink } from './NavMenu.styled';
+import { GridList, GridItem } from 'components';
 
 export const NavMenu = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
     <NavList>
-      <LinkList>
-        <li>
+      <GridList>
+        <GridItem>
           <MainLink to="/">Home</MainLink>
-        </li>
+        </GridItem>
         {isLoggedIn && (
-          <li>
+          <GridItem>
             <MainLink to={routesPath.contacts}>Contacts</MainLink>
-          </li>
+          </GridItem>
         )}
-      </LinkList>
+      </GridList>
     </NavList>
   );
 };

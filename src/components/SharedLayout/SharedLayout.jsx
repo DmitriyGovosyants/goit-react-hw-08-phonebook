@@ -1,7 +1,13 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { NavMenu, AuthMenu, UserMenu } from 'components';
-import { Section, Container, Header, MenuBox } from './SharedLayout.styled';
+import {
+  Section,
+  Container,
+  Header,
+  MenuBox,
+  Main,
+} from './SharedLayout.styled';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { Spinner } from 'components';
@@ -21,7 +27,7 @@ export const SharedLayout = () => {
             </MenuBox>
           </Container>
         </Header>
-        <main>
+        <Main>
           <Section>
             <Container>
               <Suspense fallback={<Spinner />}>
@@ -29,7 +35,7 @@ export const SharedLayout = () => {
               </Suspense>
             </Container>
           </Section>
-        </main>
+        </Main>
       </>
     )
   );

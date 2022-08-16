@@ -4,12 +4,17 @@ import {
   useAddContactMutation,
   useGetContactsQuery,
 } from 'redux/contacts/contactsApi';
-import { Spinner, MainButton, FormInputText, FormTitle } from 'components';
+import {
+  Spinner,
+  MainButton,
+  FormInputText,
+  FormTitle,
+  FormErrorMessage,
+} from 'components';
 import { schema } from 'helpers/validation';
 
 import { toast } from 'react-toastify';
 import styled from '@emotion/styled';
-import { ErrorMessage } from './ContactFormAdd.styled';
 
 const ContactFormStyled = styled.form`
   position: relative;
@@ -67,10 +72,10 @@ export const ContactFormAdd = ({ closeModal }) => {
       <FormTitle>New Contact</FormTitle>
 
       <FormInputText name={'name'} control={control} label={'Name'} />
-      <ErrorMessage>{errors?.name?.message}</ErrorMessage>
+      <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
       <FormInputText name={'number'} control={control} label={'Number'} />
-      <ErrorMessage>{errors?.number?.message}</ErrorMessage>
+      <FormErrorMessage>{errors?.number?.message}</FormErrorMessage>
 
       <MainButton btnType={'submit'} isLoading={isLoading}>
         {isLoading ? <Spinner /> : 'Create'}

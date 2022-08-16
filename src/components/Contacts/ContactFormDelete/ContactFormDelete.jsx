@@ -1,12 +1,7 @@
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
-import {
-  ContactDeleteBox,
-  Text,
-  BtnList,
-  BtnItem,
-} from './ContactFormDelete.styled';
-import { FormTitle, MainButton, Spinner } from 'components';
+import { Text } from './ContactFormDelete.styled';
+import { FormTitle, MainButton, Spinner, GridList, GridItem } from 'components';
 
 export const ContactFormDelete = ({ name, id, closeModal }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();
@@ -31,19 +26,19 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
   };
 
   return (
-    <ContactDeleteBox>
+    <>
       <FormTitle>Delete Contact</FormTitle>
       <Text>Do you really want to delete this contact?</Text>
-      <BtnList>
-        <BtnItem>
+      <GridList>
+        <GridItem>
           <MainButton onClick={() => closeModal()}>no</MainButton>
-        </BtnItem>
-        <BtnItem>
+        </GridItem>
+        <GridItem>
           <MainButton isLoading={isLoading} onClick={handleDelete}>
             {isLoading ? <Spinner /> : 'delete'}
           </MainButton>
-        </BtnItem>
-      </BtnList>
-    </ContactDeleteBox>
+        </GridItem>
+      </GridList>
+    </>
   );
 };
