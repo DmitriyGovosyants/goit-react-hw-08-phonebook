@@ -30,7 +30,7 @@ export const UserMenu = () => {
   };
 
   return (
-    <GridList>
+    <GridList style={{ marginLeft: 'auto' }}>
       <GridItem>
         <UserMenuBox>
           <UserMenuText>{userName}</UserMenuText>

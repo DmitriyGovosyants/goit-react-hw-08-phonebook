@@ -28,7 +28,6 @@ export const AvatarBox = styled.div`
 
 export const Avatar = styled.p`
   font-size: ${p => p.theme.fontSizes.XL};
-  padding-bottom: 4px;
 `
 
 export const Info = styled.div`
