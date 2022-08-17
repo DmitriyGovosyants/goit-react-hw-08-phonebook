@@ -2,8 +2,13 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import { useRegisterMutation } from 'redux/auth/authApi';
-import { Spinner, FormInput, FormErrorMessage, MainButton } from 'components';
-import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
+import {
+  Spinner,
+  FormInput,
+  FormErrorMessage,
+  MainButton,
+  FormContainer,
+} from 'components';
 import { signInSchema } from 'helpers/formValidation';
 
 export const SigninForm = () => {

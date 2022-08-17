@@ -3,6 +3,13 @@ import { MdDelete } from 'react-icons/md';
 import { FaPen } from 'react-icons/fa';
 import { useState } from 'react';
 import {
+  ContactFormDelete,
+  ContactFormUpdate,
+  Modal,
+  GridList,
+  GridItem,
+} from 'components';
+import {
   ContactBox,
   AvatarBox,
   Avatar,
@@ -10,13 +17,6 @@ import {
   InfoText,
   EditBtn,
 } from './ContactItem.styled';
-import {
-  ContactFormDelete,
-  ContactFormUpdate,
-  Modal,
-  GridList,
-  GridItem,
-} from 'components';
 
 export const ContactItem = ({ name, number, id }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);

@@ -19,11 +19,14 @@ export * from './Contacts/ContactItem/ContactItem';
 export * from './UI/FormInput/FormInput';
 export * from './UI/FormTitle/FormTitle';
 export * from './UI/FormErrorMessage/FormErrorMessage';
+export * from './UI/FormBtnClose/FormBtnClose';
 
 export * from './UI/MainButton/MainButton';
 export * from './UI/MainTitle/MainTitle';
-
 export * from './UI/GridList/GridList';
 export * from './UI/GridItem/GridItem';
 export * from './UI/Modal/Modal';
 export * from './UI/Spinner/Spinner';
+
+export * from './UI/FormContainer/FormContainer.styled';
+export * from './UI/MenuLinkBtn/MenuLinkBtn.styled';

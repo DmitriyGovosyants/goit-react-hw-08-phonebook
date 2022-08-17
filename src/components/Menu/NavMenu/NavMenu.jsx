@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 import { routesPath } from 'router';
 import authSelectors from 'redux/auth/authSelectors';
-import { MenuLink } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
-import { GridList, GridItem } from 'components';
+import { GridList, GridItem, MenuLink } from 'components';
 import { Nav } from './NavMenu.styled';
 
 export const NavMenu = () => {

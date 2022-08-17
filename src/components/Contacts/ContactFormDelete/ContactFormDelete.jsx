@@ -1,10 +1,16 @@
 import PropTypes from 'prop-types';
-import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
+import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
+import {
+  FormTitle,
+  MainButton,
+  Spinner,
+  GridList,
+  GridItem,
+  FormContainer,
+  FormBtnClose,
+} from 'components';
 import { Text } from './ContactFormDelete.styled';
-import { FormTitle, MainButton, Spinner, GridList, GridItem } from 'components';
-import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
-import { FormBtnClose } from 'components/UI/FormBtnClose/FormBtnClose';
 
 export const ContactFormDelete = ({ name, id, closeModal }) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();

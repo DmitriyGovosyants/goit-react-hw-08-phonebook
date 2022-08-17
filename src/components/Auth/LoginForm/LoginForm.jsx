@@ -1,10 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
 import { logInSchema } from 'helpers/formValidation';
 import { useLogInMutation } from 'redux/auth/authApi';
-import { Spinner, FormInput, FormErrorMessage, MainButton } from 'components';
-import { toast } from 'react-toastify';
-import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
+import {
+  Spinner,
+  FormInput,
+  FormErrorMessage,
+  MainButton,
+  FormContainer,
+} from 'components';
 
 export const LoginForm = () => {
   const [logIn, { isLoading }] = useLogInMutation();

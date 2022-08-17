@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import { createPortal } from 'react-dom';
+import { useEffect, useRef } from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { Overlay, ModalContent } from './Modal.styled';
 

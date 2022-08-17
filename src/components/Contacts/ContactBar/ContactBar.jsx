@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { ContactFormAdd, ContactFilter, Modal } from 'components';
 import { FcPlus } from 'react-icons/fc';
-import { ContactBarBox, ContactAddBtn, Total } from './ContactBar.styled';
 import { useGetContactsQuery } from 'redux/contacts/contactsApi';
+import { ContactFormAdd, ContactFilter, Modal } from 'components';
+import { ContactBarBox, ContactAddBtn, Total } from './ContactBar.styled';
 
 export const ContactBar = () => {
   const [showModal, setShowModal] = useState(false);

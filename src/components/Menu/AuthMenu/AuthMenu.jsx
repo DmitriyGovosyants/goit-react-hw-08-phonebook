@@ -1,6 +1,5 @@
 import { routesPath } from 'router';
-import { GridList, GridItem } from 'components';
-import { MenuLink } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
+import { GridList, GridItem, MenuLink } from 'components';
 
 export const AuthMenu = () => {
   return (

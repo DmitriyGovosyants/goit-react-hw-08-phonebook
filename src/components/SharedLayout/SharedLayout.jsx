@@ -1,6 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { NavMenu, AuthMenu, UserMenu } from 'components';
+import { useSelector } from 'react-redux';
+import authSelectors from 'redux/auth/authSelectors';
+import Image from '../../data/background.jpg';
+import { NavMenu, AuthMenu, UserMenu, Spinner } from 'components';
 import {
   Section,
   HeaderContainer,
@@ -9,10 +12,6 @@ import {
   MenuBox,
   Main,
 } from './SharedLayout.styled';
-import { useSelector } from 'react-redux';
-import authSelectors from 'redux/auth/authSelectors';
-import { Spinner } from 'components';
-import Image from '../../data/background.jpg';
 
 export const SharedLayout = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);

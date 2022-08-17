@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { contactSchema } from 'helpers/formValidation';
 import {
   useAddContactMutation,
   useGetContactsQuery,
@@ -11,12 +13,9 @@ import {
   FormInput,
   FormTitle,
   FormErrorMessage,
+  FormContainer,
+  FormBtnClose,
 } from 'components';
-import { contactSchema } from 'helpers/formValidation';
-
-import { toast } from 'react-toastify';
-import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
-import { FormBtnClose } from 'components/UI/FormBtnClose/FormBtnClose';
 
 export const ContactFormAdd = ({ closeModal }) => {
   const [addNewContact, { isLoading }] = useAddContactMutation();

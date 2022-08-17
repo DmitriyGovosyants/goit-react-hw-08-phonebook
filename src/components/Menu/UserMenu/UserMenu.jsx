@@ -1,12 +1,11 @@
+import { Gi3DMeeple } from 'react-icons/gi';
+import { toast } from 'react-toastify';
+import { store } from 'redux/store';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { useLogOutMutation } from 'redux/auth/authApi';
-import { GridList, GridItem } from 'components';
 import { contactsApi } from 'redux/contacts/contactsApi';
-import { store } from 'redux/store';
-import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
-import { toast } from 'react-toastify';
-import { Gi3DMeeple } from 'react-icons/gi';
+import { GridList, GridItem, MenuBtn } from 'components';
 import { UserMenuText, UserMenuBox } from './UserMenu.styled';
 
 export const UserMenu = () => {
