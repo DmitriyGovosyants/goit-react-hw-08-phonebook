@@ -1,14 +1,14 @@
 import { routesPath } from 'router';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
-import { MainText, Text, WelcomeLink } from './WelcomeScreen.styled';
+import { Text, WelcomeLink, TypingHello } from './WelcomeScreen.styled';
 
 export const WelcomeScreen = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
     <>
-      <MainText>Welcome to phonebook react app</MainText>
+      <TypingHello>Welcome to phonebook react app!</TypingHello>
       {!isLoggedIn && (
         <>
           <Text>
