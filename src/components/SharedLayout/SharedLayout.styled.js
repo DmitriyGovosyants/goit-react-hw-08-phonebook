@@ -6,14 +6,14 @@ export const Header = styled.header`
   top: 0;
   left: 50%;
   transform: translate(-50%);
-  z-index: 1000;
+  z-index: 10;
   
   display: flex;
   width: 100%;
   min-height: 100px;
 
-  background-color: #ddeeff;
-  border-bottom: 1px solid lightgray;
+  background-color: ${p => p.theme.colors.bgcMain};
+  border-bottom: 1px solid ${p => p.theme.colors.line};
 
   ${device.mobile} {
     min-height: 60px;
@@ -54,17 +54,22 @@ export const MenuBox = styled.div`
 `
 
 export const Main = styled.main`
-  min-height: calc(100vh - 60px);
-  margin-top: ${p => p.theme.spacing(15)};
+  min-height: calc(100vh - 100px);
+  margin-top: ${p => p.theme.spacing(25)};
   background-image: linear-gradient(
             to right,
             rgba(47, 48, 58, 0.6),
             rgba(47, 48, 58, 0.6)
           ), url(${props => props.img});
   background-repeat: no-repeat;
-  /* background-position: center; */
+  background-position: bottom;
   background-attachment: fixed;
   background-size: cover;
+
+  ${device.mobile} {
+    min-height: calc(100vh - 60px);
+    margin-top: ${p => p.theme.spacing(15)};
+  }
 `
 
 export const Section = styled.div`

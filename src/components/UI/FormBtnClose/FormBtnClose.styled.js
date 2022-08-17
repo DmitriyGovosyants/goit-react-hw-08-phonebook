@@ -11,10 +11,10 @@ export const BtnClose = styled.button`
   width: 40px;
   height: 40px;
 
-  color: #296d98;
+  color: ${p => p.theme.colors.iconColor};
   transition: color ${p => p.theme.animation.cubicBezier};
   
   :hover {
-    color: #290098;
+    color: ${p => p.theme.colors.iconColorAccent};
   }
 `

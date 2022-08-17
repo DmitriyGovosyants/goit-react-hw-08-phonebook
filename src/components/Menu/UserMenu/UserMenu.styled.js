@@ -7,8 +7,9 @@ export const UserMenuBox = styled.div`
 `
 
 export const UserMenuText = styled.p`
-  margin-left: ${p => p.theme.spacing(2)};
+  margin-right: ${p => p.theme.spacing(2)};
   font-weight: 700;
   font-style: italic;
-  color: black;
+  color: ${p => p.theme.colors.textSecond};
+  text-shadow: ${p => p.theme.shadow.userMenu};
 `

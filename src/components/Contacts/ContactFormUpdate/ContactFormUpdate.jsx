@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
@@ -7,7 +8,7 @@ import {
 import {
   Spinner,
   MainButton,
-  FormInputText,
+  FormInput,
   FormTitle,
   FormErrorMessage,
 } from 'components';
@@ -61,10 +62,15 @@ export const ContactFormUpdate = ({ closeModal, name, number, id }) => {
         <FormBtnClose onClick={() => closeModal()} />
         <FormTitle>Update Contact</FormTitle>
 
-        <FormInputText name={'name'} control={control} label={'Name'} />
+        <FormInput name={'name'} control={control} label={'Name'} />
         <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-        <FormInputText name={'number'} control={control} label={'Number'} />
+        <FormInput
+          name={'number'}
+          control={control}
+          label={'Number'}
+          type="tel"
+        />
         <FormErrorMessage>{errors?.number?.message}</FormErrorMessage>
 
         <MainButton btnType={'submit'} isLoading={isLoading}>
@@ -73,4 +79,11 @@ export const ContactFormUpdate = ({ closeModal, name, number, id }) => {
       </FormContainer>
     </form>
   );
+};
+
+ContactFormUpdate.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };

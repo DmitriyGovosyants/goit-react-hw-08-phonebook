@@ -4,35 +4,39 @@ import { NavLink } from 'react-router-dom';
 export const MenuLink = styled(NavLink)`
   padding: ${p => p.theme.spacing(2)};
 
-  font-size: 18px;
+  font-size: ${p => p.theme.fontSizes.M};
   font-weight: 700;
-  color: #296d98;
+  color: ${p => p.theme.colors.textThird};
+
   border-radius: 10px;
   border: 1px solid transparent;
-  transition: background-color ${p => p.theme.animation.cubicBezier}, box-shadow ${p => p.theme.animation.cubicBezier};
+  transition: background-color ${p => p.theme.animation.cubicBezier},
+   box-shadow ${p => p.theme.animation.cubicBezier};
   
   &.active {
-    background-color: #ffffff;
+    background-color: ${p => p.theme.colors.bgcSecond};
     box-shadow: 3px 3px 5px black;
   }
 
   :hover {
-    background-color: #ffffff;
+    background-color: ${p => p.theme.colors.bgcSecond};
   }
 `
 
 export const MenuBtn = styled.button`
   padding: ${p => p.theme.spacing(2)};
 
-  font-size: 18px;
+  font-size: ${p => p.theme.fontSizes.M};
   font-weight: 700;
-  color: #296d98;
+  color: ${p => p.theme.colors.textThird};
+
+  background-color: ${p => p.theme.colors.attentionBtnBgc};
   border-radius: 10px;
-  background-color: #eeaa47;
-  transition: background-color ${p => p.theme.animation.cubicBezier}, color ${p => p.theme.animation.cubicBezier};
+  transition: background-color ${p => p.theme.animation.cubicBezier},
+   color ${p => p.theme.animation.cubicBezier};
   
   :hover {
-    color: #290000;
-    background-color: #00aa47;
+    color: ${p => p.theme.colors.textMain};
+    background-color: ${p => p.theme.colors.attentionBtnBgcAccent};
   }
 `

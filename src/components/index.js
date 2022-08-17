@@ -16,7 +16,7 @@ export * from './Contacts/ContactFormUpdate/ContactFormUpdate';
 export * from './Contacts/ContactList/ContactList';
 export * from './Contacts/ContactItem/ContactItem';
 
-export * from './UI/FormInputText/FormInputText';
+export * from './UI/FormInput/FormInput';
 export * from './UI/FormTitle/FormTitle';
 export * from './UI/FormErrorMessage/FormErrorMessage';
 

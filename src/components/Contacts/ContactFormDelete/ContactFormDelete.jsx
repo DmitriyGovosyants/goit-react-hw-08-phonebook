@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { toast } from 'react-toastify';
 import { Text } from './ContactFormDelete.styled';
@@ -30,7 +31,7 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
     <FormContainer>
       <FormBtnClose onClick={() => closeModal()} />
       <FormTitle>Delete Contact</FormTitle>
-      <Text>Do you really want to delete this contact?</Text>
+      <Text>Do you really want to delete '{name}' contact?</Text>
       <GridList>
         <GridItem>
           <MainButton onClick={() => closeModal()}>no</MainButton>
@@ -43,4 +44,10 @@ export const ContactFormDelete = ({ name, id, closeModal }) => {
       </GridList>
     </FormContainer>
   );
+};
+
+ContactFormDelete.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
 };

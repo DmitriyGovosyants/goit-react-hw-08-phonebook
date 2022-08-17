@@ -3,12 +3,13 @@ import { routesPath } from 'router';
 import authSelectors from 'redux/auth/authSelectors';
 import { MenuLink } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { GridList, GridItem } from 'components';
+import { Nav } from './NavMenu.styled';
 
 export const NavMenu = () => {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   return (
-    <nav style={{ height: '50px', display: 'flex' }}>
+    <Nav>
       <GridList>
         <GridItem>
           <MenuLink to="/">Home</MenuLink>
@@ -19,6 +20,6 @@ export const NavMenu = () => {
           </GridItem>
         )}
       </GridList>
-    </nav>
+    </Nav>
   );
 };

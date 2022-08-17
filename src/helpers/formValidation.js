@@ -1,8 +1,7 @@
 import * as Yup from 'yup';
 
 const nameRegExp = "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
-const phoneRegExp =
-  /^(\+?\d{0,4})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)?$/;
+const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
 
 export const contactSchema = Yup.object({
   name: Yup.string()
@@ -16,7 +15,7 @@ export const contactSchema = Yup.object({
   number: Yup.string()
     .matches(
       phoneRegExp,
-      '* Phone number must be digits, contain 6 digits, can contain spaces, dashes, parentheses and can start with +'
+      '* Phone number must be digits, can contain spaces, dashes, parentheses and can start with +'
     )
     .required('Number is required'),
 });

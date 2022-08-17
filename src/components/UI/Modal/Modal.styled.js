@@ -4,13 +4,14 @@ export const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1200;
+  z-index: 20;
   width: 100%;
   height: 100%;
   padding: ${p => p.theme.spacing(4)} 0;
 
   background-color: rgba(0, 0, 0, 0.15);
   overflow-y: scroll;
+
   animation-name: backdrop;
   animation-duration: 300ms;
   animation-timing-function: ease;
@@ -36,7 +37,7 @@ export const ModalContent = styled.div`
   margin-right: auto;
   padding: ${p => p.theme.spacing(4)} ${p => p.theme.spacing(8)};
 
-  background-color: white;
+  background-color: ${p => p.theme.colors.bgcMain};
   border-radius: 10px;
 
   @media screen and (max-height: 500px) and (orientation: landscape) {

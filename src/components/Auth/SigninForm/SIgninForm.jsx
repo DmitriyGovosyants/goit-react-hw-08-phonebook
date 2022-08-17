@@ -2,12 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import { useRegisterMutation } from 'redux/auth/authApi';
-import {
-  Spinner,
-  FormInputText,
-  FormErrorMessage,
-  MainButton,
-} from 'components';
+import { Spinner, FormInput, FormErrorMessage, MainButton } from 'components';
 import { FormContainer } from 'components/UI/FormContainer/FormContainer.styled';
 import { signInSchema } from 'helpers/formValidation';
 
@@ -50,13 +45,18 @@ export const SigninForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FormContainer>
-        <FormInputText name={'name'} control={control} label={'Name*'} />
+        <FormInput name={'name'} control={control} label={'Name*'} />
         <FormErrorMessage>{errors?.name?.message}</FormErrorMessage>
 
-        <FormInputText name={'email'} control={control} label={'Email*'} />
+        <FormInput
+          name={'email'}
+          control={control}
+          label={'Email*'}
+          type="email"
+        />
         <FormErrorMessage>{errors?.email?.message}</FormErrorMessage>
 
-        <FormInputText
+        <FormInput
           name={'password'}
           control={control}
           label={'Password*'}

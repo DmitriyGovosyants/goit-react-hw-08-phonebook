@@ -9,7 +9,6 @@ export const GetCurrentUser = async () => {
   const token = useSelector(authSelectors.getToken);
   const isAuthorized = useSelector(authSelectors.getIsLoggedIn);
   
-
   try {
     const data = useGetCurrentUserQuery('', {
       skip: token === null || isAuthorized === true,

@@ -4,7 +4,7 @@ import { useLogOutMutation } from 'redux/auth/authApi';
 import { GridList, GridItem } from 'components';
 import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { toast } from 'react-toastify';
-import { SiMailchimp } from 'react-icons/si';
+import { Gi3DMeeple } from 'react-icons/gi';
 import { UserMenuText, UserMenuBox } from './UserMenu.styled';
 
 export const UserMenu = () => {
@@ -31,8 +31,8 @@ export const UserMenu = () => {
     <GridList>
       <GridItem>
         <UserMenuBox>
-          <SiMailchimp size={30} color={'#648864'} />
           <UserMenuText>{userName}</UserMenuText>
+          <Gi3DMeeple size={36} color={'#304c8a'} />
         </UserMenuBox>
       </GridItem>
       <GridItem>

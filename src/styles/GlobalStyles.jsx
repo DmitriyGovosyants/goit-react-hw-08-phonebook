@@ -15,7 +15,7 @@ export const GlobalStyles = css`
       'Helvetica Neue', sans-serif;
     font-style: normal;
 
-    background: ${theme.colors.mainBgc};
+    background: ${theme.colors.bgcMain};
 
     -ms-overflow-style: none;
     scrollbar-width: none;

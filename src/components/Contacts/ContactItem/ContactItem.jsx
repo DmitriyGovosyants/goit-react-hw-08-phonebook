@@ -30,16 +30,16 @@ export const ContactItem = ({ name, number, id }) => {
         <Avatar>{firstLetter}</Avatar>
       </AvatarBox>
       <Info>
-        <InfoText fwBig={true}>{name}</InfoText>
+        <InfoText fwBig>{name}</InfoText>
         <InfoText>{number}</InfoText>
       </Info>
-      <GridList style={{ marginLeft: 'auto' }}>
-        <GridItem>
+      <GridList column={true} style={{ marginLeft: 'auto' }}>
+        <GridItem column={true}>
           <EditBtn type="button" onClick={() => setShowUpdateModal(true)}>
             <FaPen size={26} />
           </EditBtn>
         </GridItem>
-        <GridItem>
+        <GridItem column={true}>
           <EditBtn type="button" onClick={() => setShowDeleteModal(true)}>
             <MdDelete size={30} />
           </EditBtn>

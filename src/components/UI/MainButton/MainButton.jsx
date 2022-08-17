@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 
 export const MainButton = ({
@@ -18,4 +19,11 @@ export const MainButton = ({
       {children}
     </Button>
   );
+};
+
+MainButton.propTypes = {
+  btnType: PropTypes.string,
+  isLoading: PropTypes.bool,
+  children: PropTypes.node,
+  onClick: PropTypes.func,
 };

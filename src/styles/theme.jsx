@@ -1,29 +1,38 @@
 export const theme = Object.freeze({
   colors: {
-    mainTitleColor: '#f5f5f5',
-    titleColor: '#1976d2',
-    textColorMain: '#ffffff',
-    textColorSecond: '#173d6e',
+    titleMain: '#f5f5f5',
+    titleForm: '#ffffff',
 
-    mainBgc: ['linear-gradient(to bottom, #c9d6ff,  #e2e2e2)'],
-    secondBgc: '#e9bebe',
+    textMain: '#0d2646',
+    textSecond: '#ffffff',
+    textThird: '#296d98',
 
-    btnBgc: '#a16f6f',
-    btnBgcAccent: '#8b5353',
+    bgcMain: '#ddeeff',
+    bgcSecond: '#ffeeff',
+
+    iconColor: '#a16f6f',
+    iconColorAccent: '#8b5353',
+    iconBgcAccent: '#ffadff',
+
+    attentionBtnBgc: '#eeaa47',
+    attentionBtnBgcAccent: '#00aa47',
+
+    contactAvatarBgc: '#ff6347',
+    line: '#d3d3d3',
   },
   fontSizes: {
-    titleBig: '3em',
-    title: '2em',
-    small: '14px',
-    medium: '18px',
+    titleMain: '48px',
+    titleForm: '32px',
+    S: '12px',
+    M: '18px',
+    XL: '32px',
   },
   spacing: value => `${4 * value}px`,
   animation: {
     cubicBezier: '250ms cubic-bezier(0.7, 0.98, 0.86, 0.98)',
   },
   shadow: {
-    formFocusShadow: '1px 1px 5px black',
-    textTitleBig: `1px 1px 1px #919191,
+    titleMain: `1px 1px 1px #919191,
       1px 2px 1px #919191,
       1px 3px 1px #919191,
       1px 4px 1px #919191,
@@ -32,7 +41,8 @@ export const theme = Object.freeze({
       1px 7px 1px #919191,
   1px 10px 3px rgba(16,16,16,0.4),
   1px 25px 35px rgba(16,16,16,0.2)`,
-    textTitle: `1px 1px 1px #919191,
+    titleForm: `1px 1px 1px #919191,
       1px 2px 1px #919191`,
+    userMenu: `3px 3px 15px #26207a, -3px -3px 15px #26207a`,
   },
 });
