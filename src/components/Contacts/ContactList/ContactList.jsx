@@ -13,7 +13,7 @@ export const ContactList = () => {
     if (error.status === 401) {
       toast.error(error.data.message);
     }
-    if (error.originalStatus === 404) {
+    if (error?.originalStatus === 404 || error?.status === 404) {
       toast.error('Resourses not found');
     }
     if (error.status === 500) {
