@@ -15,7 +15,7 @@ used.
 
 ## Used library
 
-### State Management, Asynchronous Queries, and Local Storage
+### State Management, Asynchronous Queries and Local Storage
 
 - react-redux
 - redux-toolkit
