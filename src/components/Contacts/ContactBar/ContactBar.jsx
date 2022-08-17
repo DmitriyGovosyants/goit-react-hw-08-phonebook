@@ -11,6 +11,7 @@ export const ContactBar = () => {
   return (
     <ContactBarBox>
       <ContactFilter />
+      <Total>{contacts ? contacts.length : 0}</Total>
       <ContactAddBtn
         type="button"
         onClick={() => setShowModal(true)}
@@ -18,7 +19,6 @@ export const ContactBar = () => {
       >
         <FcPlus size={50} />
       </ContactAddBtn>
-      <Total>{contacts ? contacts.length : 0}</Total>
       {showModal && (
         <Modal toggleModal={() => setShowModal(s => !s)}>
           <ContactFormAdd closeModal={() => setShowModal(false)} />
