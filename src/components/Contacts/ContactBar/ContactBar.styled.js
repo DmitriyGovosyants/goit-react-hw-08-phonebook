@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { device } from "utils/mediaquery";
 
 export const ContactBarBox = styled.div`
   display: flex;
@@ -16,7 +15,6 @@ export const ContactAddBtn = styled.button`
 
 export const Total = styled.p`
   min-width: 44px;
-  height: 54px;
   display: flex;
   justify-content: center;
   align-items: center;
