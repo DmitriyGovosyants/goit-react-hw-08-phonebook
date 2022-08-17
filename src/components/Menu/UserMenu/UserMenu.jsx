@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
 import { useLogOutMutation } from 'redux/auth/authApi';
 import { GridList, GridItem } from 'components';
+import { contactsApi } from 'redux/contacts/contactsApi';
+import { store } from 'redux/store';
 import { MenuBtn } from 'components/UI/MenuLinkBtn/MenuLinkBtn.styled';
 import { toast } from 'react-toastify';
 import { Gi3DMeeple } from 'react-icons/gi';
@@ -25,6 +27,7 @@ export const UserMenu = () => {
         toast.error('Server not response');
       }
     }
+    store.dispatch(contactsApi.util.resetApiState());
   };
 
   return (
