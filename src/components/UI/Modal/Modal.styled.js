@@ -9,7 +9,7 @@ export const Overlay = styled.div`
   height: 100%;
   padding: ${p => p.theme.spacing(4)} 0;
 
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   overflow-y: scroll;
 
   animation-name: backdrop;
@@ -36,6 +36,7 @@ export const ModalContent = styled.div`
   margin-left: auto;
   margin-right: auto;
   padding: ${p => p.theme.spacing(4)} ${p => p.theme.spacing(8)};
+  box-shadow: ${p => p.theme.shadow.userMenu};
 
   background-color: ${p => p.theme.colors.bgcMain};
   border-radius: 10px;

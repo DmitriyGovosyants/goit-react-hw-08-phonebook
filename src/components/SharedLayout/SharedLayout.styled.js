@@ -56,19 +56,21 @@ export const MenuBox = styled.div`
 export const Main = styled.main`
   min-height: calc(100vh - 100px);
   margin-top: ${p => p.theme.spacing(25)};
-  background-image: linear-gradient(
-            to right,
-            rgba(47, 48, 58, 0.6),
-            rgba(47, 48, 58, 0.6)
-          ), url(${props => props.img});
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-attachment: fixed;
-  background-size: cover;
+  background: linear-gradient(to right, #5a3f37, #2c7744);
 
   ${device.mobile} {
     min-height: calc(100vh - 60px);
     margin-top: ${p => p.theme.spacing(15)};
+
+    background-image: linear-gradient(
+            to right,
+            rgba(47, 48, 58, 0.6),
+            rgba(47, 48, 58, 0.6)
+          ), url(${props => props.img});
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-size: cover;
   }
 `
 
