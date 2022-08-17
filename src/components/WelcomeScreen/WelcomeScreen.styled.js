@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Link } from 'react-router-dom';
+import { device } from "utils/mediaquery";
 
 export const Text = styled.p`
   font-size: ${p => p.theme.fontSizes.M};
@@ -30,28 +31,31 @@ export const WelcomeLink = styled(Link)`
 `
 
 export const TypingHello = styled.div`
-  width: 31ch;
   margin-bottom: ${p => p.theme.spacing(3)};
-  
-  font-family: monospace;
   font-size: ${p => p.theme.fontSizes.XL};
   font-weight: 700;
-  white-space: nowrap;
+  line-height: 1.5;
   color: ${p => p.theme.colors.textSecond};
 
-  border-right: 3px solid;
-  overflow: hidden;
-  animation: typing 2500ms steps(31), blink 500ms step-end infinite alternate;
+  ${device.mobile} {
+    width: 31ch;
+    font-family: monospace;
+    white-space: nowrap;
 
-  @keyframes typing {
-    from {
-      width: 0
+    border-right: 2px solid;
+    overflow: hidden;
+    animation: typing 2500ms steps(31), blink 500ms step-end infinite alternate;
+
+    @keyframes typing {
+      from {
+        width: 0
+      }
     }
-  }
-      
-  @keyframes blink {
-    50% {
-      border-color: transparent
+        
+    @keyframes blink {
+      50% {
+        border-color: transparent
+      }
     }
   }
 `
