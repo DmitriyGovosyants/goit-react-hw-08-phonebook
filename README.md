@@ -2,30 +2,39 @@
 
 # React Phonebook App documentation
 
-## Это приложение использует такие библиотеки:
+This project was created with
+[Create React App](https://github.com/facebook/create-react-app). For
+acquaintance and customize additional features
+[refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Для управления состоянием, асинхронных запросов и использования локального
+## About
 
-хранилища
+This application allows you to create and store a private contact list. You can
+add, delete, edit, and filter contacts. User authentication via JWT tokens is
+used.
 
-- @reduxjs/toolkit
+## Used library
+
+### State Management, Asynchronous Queries, and Using Local Storage
+
 - react-redux
+- redux-toolkit
 - redux-persist
 
-### Для маршрутизации
+### Routing
 
 - react-router-dom
 
-### Формы
+### Forms
 
 - hook-form
 - yup
 - body-scroll-lock
 
-### Для стилизации
+### Styling
 
-- @emotion
-- @mui
+- emotion
+- material UI
 - react-icons
 - modern-normalize
 - react-loader-spinner
