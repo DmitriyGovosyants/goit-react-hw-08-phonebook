@@ -5,6 +5,17 @@ export const Text = styled.p`
   font-size: ${p => p.theme.fontSizes.M};
   line-height: 2;
   color: ${p => p.theme.colors.textSecond};
+
+  animation: textOpacity 2500ms linear;
+
+  @keyframes textOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 `
 
 export const WelcomeLink = styled(Link)`
