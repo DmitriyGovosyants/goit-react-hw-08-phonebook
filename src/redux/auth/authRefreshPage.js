@@ -1,5 +1,5 @@
-import authSelectors from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
+import authSelectors from 'redux/auth/authSelectors';
 import { useGetCurrentUserQuery } from 'redux/auth/authApi';
 import { toast } from 'react-toastify';
 import { unwrapResult } from '@reduxjs/toolkit';
