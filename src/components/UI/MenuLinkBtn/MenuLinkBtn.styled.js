@@ -28,15 +28,13 @@ export const MenuBtn = styled.button`
 
   font-size: ${p => p.theme.fontSizes.M};
   font-weight: 700;
-  color: ${p => p.theme.colors.textThird};
+  color: ${p => p.theme.colors.textMain};
 
   background-color: ${p => p.theme.colors.attentionBtnBgc};
   border-radius: 10px;
-  transition: background-color ${p => p.theme.animation.cubicBezier},
-   color ${p => p.theme.animation.cubicBezier};
+  transition: background-color ${p => p.theme.animation.cubicBezier};
   
   :hover {
-    color: ${p => p.theme.colors.textMain};
     background-color: ${p => p.theme.colors.attentionBtnBgcAccent};
   }
 `

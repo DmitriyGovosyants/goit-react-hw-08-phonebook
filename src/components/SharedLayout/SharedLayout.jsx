@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import authSelectors from 'redux/auth/authSelectors';
-import Image from '../../data/background.jpg';
+import Image from '../../data/background.webp';
 import { NavMenu, AuthMenu, UserMenu, Spinner } from 'components';
 import {
   Section,

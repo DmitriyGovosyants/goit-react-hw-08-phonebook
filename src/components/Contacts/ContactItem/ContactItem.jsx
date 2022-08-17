@@ -35,12 +35,20 @@ export const ContactItem = ({ name, number, id }) => {
       </Info>
       <GridList column={true} style={{ marginLeft: 'auto' }}>
         <GridItem column={true}>
-          <EditBtn type="button" onClick={() => setShowUpdateModal(true)}>
+          <EditBtn
+            type="button"
+            onClick={() => setShowUpdateModal(true)}
+            aria-label={'update contact'}
+          >
             <FaPen size={26} />
           </EditBtn>
         </GridItem>
         <GridItem column={true}>
-          <EditBtn type="button" onClick={() => setShowDeleteModal(true)}>
+          <EditBtn
+            type="button"
+            onClick={() => setShowDeleteModal(true)}
+            aria-label={'delete contact'}
+          >
             <MdDelete size={30} />
           </EditBtn>
         </GridItem>

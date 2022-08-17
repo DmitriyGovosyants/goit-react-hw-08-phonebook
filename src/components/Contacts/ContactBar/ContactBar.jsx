@@ -11,7 +11,11 @@ export const ContactBar = () => {
   return (
     <ContactBarBox>
       <ContactFilter />
-      <ContactAddBtn type="button" onClick={() => setShowModal(true)}>
+      <ContactAddBtn
+        type="button"
+        onClick={() => setShowModal(true)}
+        aria-label={'add contact'}
+      >
         <FcPlus size={50} />
       </ContactAddBtn>
       <Total>{contacts ? contacts.length : 0}</Total>

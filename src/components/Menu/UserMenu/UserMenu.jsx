@@ -38,7 +38,7 @@ export const UserMenu = () => {
         </UserMenuBox>
       </GridItem>
       <GridItem>
-        <MenuBtn type="button" onClick={handleLogOut}>
+        <MenuBtn type="button" onClick={handleLogOut} aria-label={'log out'}>
           Log out
         </MenuBtn>
       </GridItem>
