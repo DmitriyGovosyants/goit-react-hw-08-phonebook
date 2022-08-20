@@ -15,7 +15,8 @@ export const GetCurrentUser = async () => {
     unwrapResult(data);
   } catch (error) {
     if (error.status === 401) {
-      toast.error(error.data.message);
+      localStorage.setItem('persist:auth', null);
+      window.location.reload();
     }
     if (error.originalStatus === 404) {
       toast.error('Resourses not found');
